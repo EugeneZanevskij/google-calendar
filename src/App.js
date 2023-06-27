@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from './Header';
+import Sidebar from './Sidebar';
+import Calendar from './Calendar';
+import { getMonth } from './util';
 
 function App() {
-  const [events, setEvents] = useState([]);
-
-  const handleAddEvent = (event) => {
-    setEvents([...events, event]);
-  };
+  const [currentMonth, setCurrentMonth] = useState(getMonth());
 
   return (
-    <div className="App">
+    <>
       <Header/>
-      <div className="calendar">
+      <main className="container">
+        <Sidebar/>
+        <Calendar month={currentMonth}/>
         {/* Add your calendar components here */}
-      </div>
-    </div>
+      </main>
+    </>
   );
 }
 

@@ -3,7 +3,7 @@ import Day from './Day';
 import './Calendar.css';
 
 const Calendar = ({month}) => {
-  const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+  const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   return (
     <div className='calendar'>
       {days.map((day, index) => {

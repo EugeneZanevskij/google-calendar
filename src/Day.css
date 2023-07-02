@@ -1,13 +1,26 @@
 .day {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  width: 8rem;
-  height: 5rem;
-  font-size: 2rem;
-  font-weight: bold;
+  flex-direction: column;
+  width: 10rem;
+  height: 6.25rem;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+  border: 1px solid #e8e8e8;
+}
+
+.day__date {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.day__event {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 0.125rem;
 }
 
 .day:hover {
@@ -17,4 +30,12 @@
 .day--current {
   background-color: #2196f3;
   color: white;
+}
+
+.weekday {
+  height: 2rem;
+}
+
+.day__weekday {
+  margin: 0;
 }

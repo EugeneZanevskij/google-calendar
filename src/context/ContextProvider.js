@@ -51,7 +51,8 @@ export default function ContextProvider(props) {
       setDaySelected,
       showEventModal,
       setShowEventModal,
-      dispatchCalEvents
+      dispatchCalEvents,
+      calendarEvents
     }}>
       {props.children}
     </GlobalContext.Provider>

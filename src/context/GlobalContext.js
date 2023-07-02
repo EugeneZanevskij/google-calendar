@@ -9,7 +9,8 @@ const GlobalContext = React.createContext({
   setDaySelected: (day) => {},
   showEventModal: false,
   setShowEventModal: () => {},
-  dispatchCalEvents: ({type, payload}) => {}
+  dispatchCalEvents: ({type, payload}) => {},
+  calendarEvents: []
 });
 
 export default GlobalContext;

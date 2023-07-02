@@ -23,6 +23,16 @@
   align-items: center;
 }
 
+.event-modal__delete {
+  position: absolute;
+  top: 0.5rem;
+  right: 3rem;
+  background: maroon;
+  color: azure;
+  border: none;
+  cursor: pointer;
+}
+
 .event-modal__close {
   position: absolute;
   top: 0.5rem;
@@ -80,7 +90,6 @@
   border-radius: 5px;
   cursor: pointer;
   margin-top: 1rem;
-  transition: background-color 0.2s ease-in-out;
 }
 
 .event-modal__save:hover {

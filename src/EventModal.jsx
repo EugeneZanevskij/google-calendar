@@ -4,15 +4,22 @@ import './EventModal.css';
 import CloseIcon from '@mui/icons-material/Close';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import CheckIcon from '@mui/icons-material/Check';
+import DeleteIcon from '@mui/icons-material/Delete';
 import "./EventModal.css";
 
 const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
 
 const EventModal = () => {
-  const {setShowEventModal, daySelected, dispatchCalEvents} = useContext(GlobalContext);
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [selectedLabel, setSelectedLabel] = useState(labels[0]);
+  const {setShowEventModal, daySelected, dispatchCalEvents, selectedEvent} = useContext(GlobalContext);
+  const [title, setTitle] = useState(
+    selectedEvent ? selectedEvent.title : ''
+  );
+  const [description, setDescription] = useState(
+    selectedEvent ? selectedEvent.description : ''
+  );
+  const [selectedLabel, setSelectedLabel] = useState(
+    selectedEvent ? labels.find(label => label === selectedEvent.label) : labels[0]
+  );
   function handleSubmit (e) {
     e.preventDefault();
     const calEvent = {
@@ -20,19 +27,38 @@ const EventModal = () => {
       description,
       label: selectedLabel,
       day: daySelected,
-      id: Date.now()
+      id: selectedEvent ? selectedEvent.id : Date.now()
     };
+    if (selectedEvent) {
+      dispatchCalEvents({
+        type: 'update',
+        payload: calEvent
+      });
+    } else {
     dispatchCalEvents({
       type: 'push',
       payload: calEvent
-    });
+    })
+    };
     setShowEventModal(false);
-  }
+  };
   return (
     <div className='event-modal'>
       <form className='event-modal__form'>
         <button onClick={() => setShowEventModal(false)} className='event-modal__close'>
           <CloseIcon/>
+        </button>
+        <button
+          onClick={() => {
+            dispatchCalEvents({
+              type: 'delete',
+              payload: selectedEvent
+            });
+            setShowEventModal(false);
+        }}
+          className='event-modal__delete'
+        >
+          <DeleteIcon/>
         </button>
         <div className='event-modal__element'>
           <p>Title</p>
@@ -80,5 +106,6 @@ const EventModal = () => {
     </div>
   )
 }
+
 
 export default EventModal;

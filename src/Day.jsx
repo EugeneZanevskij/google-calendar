@@ -4,7 +4,7 @@ import './Day.css';
 import GlobalContext from './context/GlobalContext';
 
 const Day = ({day, weekday}) => {
-  const {setDaySelected, setShowEventModal, calendarEvents} = useContext(GlobalContext);
+  const {setDaySelected, setShowEventModal, calendarEvents, setSelectedEvent} = useContext(GlobalContext);
 
   const [dayEvents, setDayEvents] = useState([]);
   useEffect(() => {
@@ -30,7 +30,10 @@ const Day = ({day, weekday}) => {
         <p className='day__date'>{day.format('DD')}</p>
         {dayEvents.map((event, i) => {
           return <p 
-            key={i} 
+            key={i}
+            onClick={() => {
+              setSelectedEvent(event);
+            }}
             style={{backgroundColor: event.label}}
             className='day__event'
           >

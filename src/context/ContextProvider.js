@@ -25,6 +25,7 @@ export default function ContextProvider(props) {
   const [smallCalendarMonth, setSmallCalendarMonth] = useState(null); 
   const [daySelected, setDaySelected] = useState(dayjs());
   const [showEventModal, setShowEventModal] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
   const [calendarEvents, dispatchCalEvents] = useReducer(
     savedEventsReducer, 
     [], 
@@ -41,6 +42,12 @@ export default function ContextProvider(props) {
     }
   }, [smallCalendarMonth]);
 
+  useEffect(() => {
+    if (!showEventModal) {
+      setSelectedEvent(null);
+    }
+  }, [showEventModal]);
+
   return (
     <GlobalContext.Provider value={{
       monthIndex,
@@ -51,6 +58,8 @@ export default function ContextProvider(props) {
       setDaySelected,
       showEventModal,
       setShowEventModal,
+      selectedEvent,
+      setSelectedEvent,
       dispatchCalEvents,
       calendarEvents
     }}>

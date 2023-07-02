@@ -4,7 +4,8 @@
   align-items: center;
   flex-direction: column;
   width: 10rem;
-  height: 6.25rem;
+  min-height: 6.25rem;
+  height: 100%;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   border: 1px solid #e8e8e8;
@@ -21,6 +22,7 @@
   width: 100%;
   text-align: center;
   margin: 0.125rem;
+  color:azure;
 }
 
 .day:hover {
@@ -33,7 +35,7 @@
 }
 
 .weekday {
-  height: 2rem;
+  min-height: 2rem;
 }
 
 .day__weekday {

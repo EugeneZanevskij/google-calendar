@@ -3,14 +3,16 @@ import GlobalContext from './context/GlobalContext';
 import './EventModal.css';
 import CloseIcon from '@mui/icons-material/Close';
 import ScheduleIcon from '@mui/icons-material/Schedule';
-import dayjs from 'dayjs';
+import CheckIcon from '@mui/icons-material/Check';
 import "./EventModal.css";
 
+const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
+
 const EventModal = () => {
-  const {setShowEventModal} = useContext(GlobalContext);
+  const {setShowEventModal, daySelected} = useContext(GlobalContext);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const daySelected = dayjs().format('dddd, MMMM DD');
+  const [selectedLabel, setSelectedLabel] = useState(labels[0]);
   return (
     <div className='event-modal'>
       <form className='event-modal__form'>
@@ -31,7 +33,7 @@ const EventModal = () => {
         </div>
         <div className='event-modal__element'>
           <ScheduleIcon/>
-          <p>{daySelected}</p>
+          <p>{daySelected.format('dddd, MMMM DD')}</p>
         </div>
         <div className='event-modal__element'>
           <p>Description</p>
@@ -44,6 +46,17 @@ const EventModal = () => {
             value={description}
             onChange={e => setDescription(e.target.value)}
           />
+        </div>
+        <div className='event-modal__element'> 
+          {labels.map((label, i) => (
+            <span
+              key={i}
+              onClick={() => setSelectedLabel(label)}
+              className='event-modal__label' 
+              style={{backgroundColor: label}}>
+                {selectedLabel === label && <CheckIcon/>}
+              </span>
+          ))}
         </div>
         <button type='submit' className='event-modal__save'>
           Create

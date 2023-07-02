@@ -9,10 +9,25 @@ import "./EventModal.css";
 const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
 
 const EventModal = () => {
-  const {setShowEventModal, daySelected} = useContext(GlobalContext);
+  const {setShowEventModal, daySelected, dispatchCalEvents} = useContext(GlobalContext);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [selectedLabel, setSelectedLabel] = useState(labels[0]);
+  function handleSubmit (e) {
+    e.preventDefault();
+    const calEvent = {
+      title,
+      description,
+      label: selectedLabel,
+      day: daySelected,
+      id: Date.now()
+    };
+    dispatchCalEvents({
+      type: 'push',
+      payload: calEvent
+    });
+    setShowEventModal(false);
+  }
   return (
     <div className='event-modal'>
       <form className='event-modal__form'>
@@ -58,7 +73,7 @@ const EventModal = () => {
               </span>
           ))}
         </div>
-        <button type='submit' className='event-modal__save'>
+        <button onClick={handleSubmit} type='submit' className='event-modal__save'>
           Create
         </button>
       </form>

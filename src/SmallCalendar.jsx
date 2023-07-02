@@ -9,20 +9,35 @@ import GlobalContext from './context/GlobalContext';
 const SmallCalendar = () => {
   const [currentMonthIndex, setCurrentMonthIndex] = useState(dayjs().month());
   const [currentMonth, setCurrentMonth] = useState(getMonth());
+  const {monthIndex, setSmallCalendarMonth, daySelected, setDaySelected} = useContext(GlobalContext);
+  
+  useEffect(() => {
+    setCurrentMonthIndex(monthIndex);
+  }, [monthIndex]);
   const handlePrevMonth = () => {
     setCurrentMonthIndex(currentMonthIndex - 1);
   };
   const handleNextMonth = () => {
     setCurrentMonthIndex(currentMonthIndex + 1);
   };
+
+  function getDayClass(day) {
+    const format = 'DD/MM/YYYY';
+    const today = dayjs().format(format);
+    const currentDay = day.format(format);
+    const selDay = daySelected && daySelected.format(format);
+    if (today === currentDay) {
+      return 'small-calendar__day-button--current';
+    } else if (selDay === currentDay) {
+      return 'small-calendar__day-button--selected';
+    } else {
+      return '';
+    }
+  }
   useEffect(() => {
     setCurrentMonth(getMonth(currentMonthIndex));
   }, [currentMonthIndex]);
 
-  const {monthIndex} = useContext(GlobalContext);
-  useEffect(() => {
-    setCurrentMonthIndex(monthIndex);
-  }, [monthIndex]);
 
   return (
     <div className='small-calendar'>
@@ -37,6 +52,30 @@ const SmallCalendar = () => {
           <ChevronRightIcon />
         </button>
       </header>
+      <div className='small-calendar__body'>
+        {currentMonth[0].map((day, index) => {
+          return <span key={index} className='small-calendar__day'>
+            {day.format('dd').charAt(0)}
+          </span>;
+        })}
+        {currentMonth.map((row, index) => {
+          return (
+            <React.Fragment key={index}>
+              {row.map((day, i) => {
+                return <button 
+                    key={i} 
+                    onClick={() => {
+                      setSmallCalendarMonth(currentMonthIndex);
+                      setDaySelected(day);
+                    }}
+                    className={`small-calendar__day-button ${getDayClass(day)}`}>
+                  {day.format('D')}
+                </button>;
+              })}
+            </React.Fragment>
+          );
+        })}
+      </div>
     </div>
   )
 }

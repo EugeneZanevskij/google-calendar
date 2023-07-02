@@ -8,3 +8,37 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.small-calendar__body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.small-calendar__day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.small-calendar__day-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+}
+
+.small-calendar__day-button:hover {
+  background-color: #735cd1;;
+}
+
+.small-calendar__day-button--current {
+  background-color: #2196f3;
+}
+.small-calendar__day-button--selected {
+  background-color: #44d26f;
+}

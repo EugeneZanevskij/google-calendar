@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import GlobalContext from './GlobalContext';
 import dayjs from 'dayjs';
 
-export default function ContextWrapper(props) {
+export default function ContextProvider(props) {
   const [monthIndex, setMonthIndex] = useState(dayjs().month());
   const [showEventModal, setShowEventModal] = useState(false);
   return (

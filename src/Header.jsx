@@ -15,7 +15,11 @@ const Header = () => {
     setMonthIndex(monthIndex + 1);
   }
   function handleResetMonth() {
-    setMonthIndex(dayjs().month());
+    setMonthIndex(
+      monthIndex === dayjs().month() 
+      ? monthIndex + Math.random() 
+      : dayjs().month()
+      );
   }
   return (
     <header className='header'>

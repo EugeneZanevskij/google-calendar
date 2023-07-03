@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useMemo, useReducer, useState } from 'react';
 import GlobalContext from './GlobalContext';
 import dayjs from 'dayjs';
 
@@ -26,14 +26,36 @@ export default function ContextProvider(props) {
   const [daySelected, setDaySelected] = useState(dayjs());
   const [showEventModal, setShowEventModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [labels, setLabels] = useState([])
   const [calendarEvents, dispatchCalEvents] = useReducer(
     savedEventsReducer, 
     [], 
     initEvents
   );
 
+  const filteredEvents = useMemo(() => {
+    return calendarEvents.filter(
+      (event) => labels
+        .filter(lbl => lbl.checked)
+        .map(lbl => lbl.label)
+        .includes(event.label)
+    );
+  }, [calendarEvents, labels]);
+
   useEffect(() => {
     localStorage.setItem('calendarEvents', JSON.stringify(calendarEvents));
+    setLabels(prevLabels => {
+      return [...new Set(calendarEvents.map((event) => event.label))].map(
+        label => {
+          const currentLabel = prevLabels.find(
+            lbl => lbl.label === label
+          );
+          return {
+            label,
+            checked: currentLabel ? currentLabel.checked : true
+          }
+      })
+    })
   }, [calendarEvents])
 
   useEffect(() => {
@@ -48,6 +70,16 @@ export default function ContextProvider(props) {
     }
   }, [showEventModal]);
 
+  function updateLabel(label) {
+    setLabels(
+      labels.map(
+        (lbl) => (
+          lbl.label === label.label ? label : lbl
+        )
+      )
+    )
+  }
+
   return (
     <GlobalContext.Provider value={{
       monthIndex,
@@ -61,7 +93,11 @@ export default function ContextProvider(props) {
       selectedEvent,
       setSelectedEvent,
       dispatchCalEvents,
-      calendarEvents
+      calendarEvents,
+      labels,
+      setLabels,
+      updateLabel,
+      filteredEvents
     }}>
       {props.children}
     </GlobalContext.Provider>

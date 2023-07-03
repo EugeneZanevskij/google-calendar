@@ -1,0 +1,16 @@
+.labels {
+  display: flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  cursor: pointer;
+}
+
+.labels__checkbox {
+  border-radius: 0.25rem;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.labels__text {
+  text-transform: uppercase;
+}

@@ -4,15 +4,15 @@ import './Day.css';
 import GlobalContext from './context/GlobalContext';
 
 const Day = ({day, weekday}) => {
-  const {setDaySelected, setShowEventModal, calendarEvents, setSelectedEvent} = useContext(GlobalContext);
+  const {setDaySelected, setShowEventModal, filteredEvents, setSelectedEvent} = useContext(GlobalContext);
 
   const [dayEvents, setDayEvents] = useState([]);
   useEffect(() => {
-    const events = calendarEvents.filter((event) => {
+    const events = filteredEvents.filter((event) => {
       return dayjs(event.day).format('YYYY-MM-DD') === dayjs(day).format('YYYY-MM-DD');
     });
     setDayEvents(events);
-  }, [calendarEvents, day]);
+  }, [filteredEvents, day]);
   const isCurrentDay = day && day.format('YYYY-MM-DD') === dayjs().format('YYYY-MM-DD');
 
   return (

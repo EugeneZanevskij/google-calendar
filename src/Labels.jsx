@@ -5,15 +5,15 @@ import './Labels.css';
 const Labels = () => {
   const {labels, updateLabel} = useContext(GlobalContext);
   return (
-    <>
-    <h2>Labels</h2>
+    <div className="labels">
+    <p className="labels__title">Labels</p>
     {labels.map(({ label: lbl, checked }, idx) => (
-      <label key={idx} className="labels">
+      <label key={idx} className="labels__labels">
         <input
           type="checkbox"
           checked={checked}
           onChange={() => updateLabel({ label: lbl, checked: !checked })}
-          className={`labels__checkbox`}
+          className='labels__checkbox'
         />
         <span 
           className={`labels__text`}
@@ -23,7 +23,7 @@ const Labels = () => {
         </span>
       </label>
     ))}
-    </>
+    </div>
   )
 }
 

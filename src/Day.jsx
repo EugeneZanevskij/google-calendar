@@ -29,7 +29,7 @@ const Day = ({day, weekday}) => {
 
   return (
     <>
-      {weekday && <div className='day weekday'>
+      {weekday && <div className='weekday'>
         <p className='day__weekday'>{weekday}</p>
       </div>}
       {day && <div 
@@ -37,9 +37,11 @@ const Day = ({day, weekday}) => {
           setDaySelected(day);
           setShowEventModal(true);
         }}
-        className={`day ${getDayClass(day)}`}
+        className='day'
       >
-        <p className='day__date'>{day.format('DD')}</p>
+        <p className={`day__date ${getDayClass(day)}`}>
+          {day.format('D')}
+        </p>
         {dayEvents.map((event, i) => {
           return <p 
             key={i}

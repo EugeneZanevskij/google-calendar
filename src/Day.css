@@ -3,30 +3,28 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  width: 10rem;
-  min-height: 6.25rem;
-  height: 100%;
+  gap: 0.125rem;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   border: 1px solid #e8e8e8;
 }
 
 .day__date {
-  margin: 0;
-  font-size: 1.5rem;
+  padding: 0.25rem;
+  border-radius: 50%;
   font-weight: bold;
+}
+
+.day__date:hover {
+  background-color: #e8e8e8;
 }
 
 .day__event {
   display: block;
   width: 100%;
   text-align: center;
-  margin: 0.125rem;
   color:azure;
-}
-
-.day:hover {
-  background-color: #e8e8e8;
+  font-size: 0.75rem;
 }
 
 .day--current {
@@ -39,8 +37,8 @@
 }
 
 .day--selected {
-  background-color: #6c0df2;
-  color: white;
+  background-color: #8dc2e6;
+  color: rgb(56, 103, 169);
 }
 .day--selected:hover {
   background-color: #3b1c66;
@@ -48,9 +46,6 @@
 }
 
 .weekday {
-  min-height: 2rem;
-}
-
-.day__weekday {
-  margin: 0;
+  text-align: center;
+  border: 1px solid #e8e8e8;
 }

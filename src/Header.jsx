@@ -24,19 +24,19 @@ const Header = () => {
   return (
     <header className='header'>
       <img className='header__logo' src={logo} alt="logo" />
-      <h1 className='header__title'>Google Calendar Clone</h1>
-      <button onClick={handleResetMonth} className='header__button'>
+      <h1 className='header__title'>Calendar Clone</h1>
+      <button onClick={handleResetMonth} className='header__button header__button--today'>
         Today
       </button>
-      <button onClick={handlePrevMonth} className='header__button'>
+      <button onClick={handlePrevMonth} className='header__button header__button--prev'>
         <ChevronLeftIcon />
       </button>
-      <button onClick={handleNextMonth} className='header__button'>
+      <button onClick={handleNextMonth} className='header__button header__button--next'>
         <ChevronRightIcon />
       </button>
-      <h2>
+      <p className='header__month'>
         {dayjs(new Date(dayjs().year(), monthIndex)).format('MMMM YYYY')}
-      </h2>
+      </p>
     </header>
   )
 }

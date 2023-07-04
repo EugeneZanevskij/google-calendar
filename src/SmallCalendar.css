@@ -1,5 +1,5 @@
 .small-calendar {
-
+  width: 100%;
 }
 
 .small-calendar__header {
@@ -7,6 +7,24 @@
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.small-calendar__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: all 0.5s;
+}
+
+.small-calendar__button:hover {
+  background-color: rgba(236, 236, 236, 0.6);
 }
 
 .small-calendar__body {
@@ -19,26 +37,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: rgb(73, 73, 73);
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.75rem;
 }
 
 .small-calendar__day-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: transparent;
   cursor: pointer;
-  font-weight: 700;
+  color: #000;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
   border: none;
+  margin: 0.125rem 0.25rem;
 }
 
 .small-calendar__day-button:hover {
-  background-color: #735cd1;;
+  background-color: #dedede;;
 }
 
 .small-calendar__day-button--current {
-  background-color: #2196f3;
+  background-color: rgb(26,115,232);
+  color: #fff;
 }
 .small-calendar__day-button--selected {
-  background-color: #44d26f;
+  color: rgb(24,90,188);
+  background-color: rgb(210,227,252);
 }

@@ -42,20 +42,20 @@ const SmallCalendar = () => {
   return (
     <div className='small-calendar'>
       <header className='small-calendar__header'>
-        <h2>
+        <p className='small-calendar__month'>
           {dayjs(new Date(dayjs().year(), currentMonthIndex)).format('MMMM YYYY')}
-        </h2>
-        <button onClick={handlePrevMonth} className='header__button'>
+        </p>
+        <button onClick={handlePrevMonth} className='small-calendar__button'>
           <ChevronLeftIcon />
         </button>
-        <button onClick={handleNextMonth} className='header__button'>
+        <button onClick={handleNextMonth} className='small-calendar__button'>
           <ChevronRightIcon />
         </button>
       </header>
       <div className='small-calendar__body'>
         {currentMonth[0].map((day, index) => {
           return <span key={index} className='small-calendar__day'>
-            {day.format('dd').charAt(0)}
+            {day.format('dd')}
           </span>;
         })}
         {currentMonth.map((row, index) => {

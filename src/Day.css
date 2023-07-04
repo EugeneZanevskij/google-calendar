@@ -33,6 +33,19 @@
   background-color: #2196f3;
   color: white;
 }
+.day--current:hover {
+  background-color: #1f527c;
+  color: white;
+}
+
+.day--selected {
+  background-color: #6c0df2;
+  color: white;
+}
+.day--selected:hover {
+  background-color: #3b1c66;
+  color: white;
+}
 
 .weekday {
   min-height: 2rem;

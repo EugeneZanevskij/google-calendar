@@ -4,7 +4,7 @@ import './Day.css';
 import GlobalContext from './context/GlobalContext';
 
 const Day = ({day, weekday}) => {
-  const {setDaySelected, setShowEventModal, filteredEvents, setSelectedEvent} = useContext(GlobalContext);
+  const {daySelected, setDaySelected, setShowEventModal, filteredEvents, setSelectedEvent} = useContext(GlobalContext);
 
   const [dayEvents, setDayEvents] = useState([]);
   useEffect(() => {
@@ -13,7 +13,19 @@ const Day = ({day, weekday}) => {
     });
     setDayEvents(events);
   }, [filteredEvents, day]);
-  const isCurrentDay = day && day.format('YYYY-MM-DD') === dayjs().format('YYYY-MM-DD');
+  function getDayClass(day) {
+    const format = 'DD/MM/YYYY';
+    const today = dayjs().format(format);
+    const currentDay = day.format(format);
+    const selDay = daySelected && daySelected.format(format);
+    if (today === currentDay) {
+      return 'day--current';
+    } else if (selDay === currentDay) {
+      return 'day--selected';
+    } else {
+      return '';
+    }
+  }
 
   return (
     <>
@@ -25,7 +37,7 @@ const Day = ({day, weekday}) => {
           setDaySelected(day);
           setShowEventModal(true);
         }}
-        className={`day ${isCurrentDay ? 'day--current' : ''}`}
+        className={`day ${getDayClass(day)}`}
       >
         <p className='day__date'>{day.format('DD')}</p>
         {dayEvents.map((event, i) => {

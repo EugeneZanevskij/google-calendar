@@ -9,7 +9,7 @@ import GlobalContext from './context/GlobalContext';
 const SmallCalendar = () => {
   const [currentMonthIndex, setCurrentMonthIndex] = useState(dayjs().month());
   const [currentMonth, setCurrentMonth] = useState(getMonth());
-  const {monthIndex, setSmallCalendarMonth, daySelected, setDaySelected} = useContext(GlobalContext);
+  const {monthIndex, setSmallCalendarMonth, daySelected, setDaySelected, setShowEventModal} = useContext(GlobalContext);
   
   useEffect(() => {
     setCurrentMonthIndex(monthIndex);
@@ -67,6 +67,7 @@ const SmallCalendar = () => {
                     onClick={() => {
                       setSmallCalendarMonth(currentMonthIndex);
                       setDaySelected(day);
+                      setShowEventModal(true);
                     }}
                     className={`small-calendar__day-button ${getDayClass(day)}`}>
                   {day.format('D')}

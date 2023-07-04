@@ -5,6 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import CheckIcon from '@mui/icons-material/Check';
 import DeleteIcon from '@mui/icons-material/Delete';
+import DescriptionIcon from '@mui/icons-material/Description';
 import "./EventModal.css";
 
 const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
@@ -48,7 +49,7 @@ const EventModal = () => {
         <button onClick={() => setShowEventModal(false)} className='event-modal__close'>
           <CloseIcon/>
         </button>
-        <button
+        {selectedEvent && <button
           onClick={() => {
             dispatchCalEvents({
               type: 'delete',
@@ -59,9 +60,8 @@ const EventModal = () => {
           className='event-modal__delete'
         >
           <DeleteIcon/>
-        </button>
+        </button>}
         <div className='event-modal__element'>
-          <p>Title</p>
           <input 
             type='text'
             name='title'
@@ -77,7 +77,7 @@ const EventModal = () => {
           <p>{daySelected.format('dddd, MMMM DD')}</p>
         </div>
         <div className='event-modal__element'>
-          <p>Description</p>
+          <DescriptionIcon/>
           <input 
             type='text'
             name='description'
@@ -100,7 +100,7 @@ const EventModal = () => {
           ))}
         </div>
         <button onClick={handleSubmit} type='submit' className='event-modal__save'>
-          Create
+          {selectedEvent ? 'Update' : 'Save'}
         </button>
       </form>
     </div>

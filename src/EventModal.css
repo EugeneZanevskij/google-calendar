@@ -15,9 +15,9 @@
   position: relative;
   background-color: white;
   border-radius: 5px;
-  padding: 1rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 30rem;
+  padding: 3rem 2rem 2rem;
+  box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.2);
+  width: 25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,41 +25,34 @@
 
 .event-modal__delete {
   position: absolute;
-  top: 0.5rem;
+  top: 1rem;
   right: 3rem;
-  background: maroon;
-  color: azure;
+  background: transparent;
+  color: rgb(145, 145, 145);
   border: none;
   cursor: pointer;
 }
 
 .event-modal__close {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 1rem;
+  right: 1em;
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.event-modal__close:hover svg {
+.event-modal__close:hover,
+.event-modal__delete:hover {
   color: red;
 }
 
 .event-modal__element {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 60%;
+  width: 80%;
   margin: 0.5rem 0;
-}
-
-.event-modal__element svg {
-  margin-right: 0.5rem;
-}
-
-.event-modal__element p {
-  margin: 0;
+  gap: 1rem;
 }
 
 .event-modal__input {
@@ -67,7 +60,6 @@
   border-radius: 5px;
   padding: 0.5rem;
   flex: 1;
-  margin-left: 0.5rem;
 }
 
 .event-modal__label {
@@ -90,6 +82,7 @@
   border-radius: 5px;
   cursor: pointer;
   margin-top: 1rem;
+  align-self: flex-end;
 }
 
 .event-modal__save:hover {

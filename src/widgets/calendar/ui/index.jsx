@@ -1,5 +1,5 @@
 import React from 'react';
-import Day from '../../../Day';
+import {Day} from '../../../features/day';
 import './style.css';
 
 export const Calendar = ({month}) => {
@@ -12,7 +12,7 @@ export const Calendar = ({month}) => {
       {month.map((row, index) => {
         return <React.Fragment key={index}>
           {row.map((day, i) => {
-            return <Day day={day} key={i} />
+            return (<Day day={day} key={i} />)
           })}
           </React.Fragment>
       })}

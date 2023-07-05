@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import './Day.css';
-import GlobalContext from './context/GlobalContext';
+import GlobalContext from '../../../context/GlobalContext';
 
-const Day = ({day, weekday}) => {
+export const Day = ({day, weekday}) => {
   const {daySelected, setDaySelected, setShowEventModal, filteredEvents, setSelectedEvent} = useContext(GlobalContext);
 
   const [dayEvents, setDayEvents] = useState([]);
@@ -58,5 +58,3 @@ const Day = ({day, weekday}) => {
     </>
   )
 }
-
-export default Day;

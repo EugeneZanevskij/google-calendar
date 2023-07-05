@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
-import './App.css';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Calendar from './Calendar';
-import { getMonth } from './util';
-import GlobalContext from './context/GlobalContext';
-import EventModal from './EventModal';
+import './index.css';
+import Header from '../Header';
+import Sidebar from '../Sidebar';
+import Calendar from '../Calendar';
+import { getMonth } from '../util';
+import GlobalContext from '../context/GlobalContext';
+import EventModal from '../EventModal';
 
-function App() {
+export const App = () => {
   const [currentMonth, setCurrentMonth] = useState(getMonth());
   const {monthIndex, showEventModal} = useContext(GlobalContext);
   useEffect(() => {
@@ -17,7 +17,7 @@ function App() {
     <>
       {showEventModal && <EventModal/>}
       <Header/>
-      <main className="container">
+      <main className="main">
         <Sidebar/>
         <Calendar month={currentMonth}/>
         {/* Add your calendar components here */}

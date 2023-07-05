@@ -1,8 +1,8 @@
 import React from 'react';
-import Day from './Day';
-import './Calendar.css';
+import Day from '../../../Day';
+import './style.css';
 
-const Calendar = ({month}) => {
+export const Calendar = ({month}) => {
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   return (
     <div className='calendar'>
@@ -18,6 +18,4 @@ const Calendar = ({month}) => {
       })}
     </div>
   )
-}
-
-export default Calendar;
+};

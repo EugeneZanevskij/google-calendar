@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { getMonth } from '../../util';
 import EventModal from '../../EventModal';
 import {Header} from '../../widgets/header';
+import {Calendar} from '../../widgets/calendar';
 import Sidebar from '../../Sidebar';
-import Calendar from '../../Calendar';
 import GlobalContext from '../../context/GlobalContext';
 
 export const Home = () => {

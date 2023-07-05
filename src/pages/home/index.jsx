@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { getMonth } from '../../util';
 import EventModal from '../../EventModal';
-import Header from '../../Header';
+import {Header} from '../../widgets/header';
 import Sidebar from '../../Sidebar';
 import Calendar from '../../Calendar';
 import GlobalContext from '../../context/GlobalContext';

@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import './Header.css';
+import './style.css';
 import logo from './assets/calendar-image.png';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import GlobalContext from './context/GlobalContext';
+import GlobalContext from '../../../context/GlobalContext';
 import dayjs from 'dayjs';
 
-const Header = () => {
+export const Header = () => {
   const {monthIndex, setMonthIndex} = useContext(GlobalContext);
   function handlePrevMonth() {
     setMonthIndex(monthIndex - 1);
@@ -40,5 +40,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header;

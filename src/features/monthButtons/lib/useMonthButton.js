@@ -2,18 +2,20 @@ import { useContext } from 'react';
 import GlobalContext from '../../../context/GlobalContext';
 import dayjs from 'dayjs';
 
-export const useMonthButton = () => {
+export const useMonthButton = (monthIdx, setMonthIdx) => {
   const {monthIndex, setMonthIndex} = useContext(GlobalContext);
+  const index = monthIdx || monthIndex;
+  const setIndex = setMonthIdx || setMonthIndex;
   function handlePrevMonth() {
-    setMonthIndex(monthIndex - 1);
+    setIndex(index - 1);
   }
   function handleNextMonth() {
-    setMonthIndex(monthIndex + 1);
+    setIndex(index + 1);
   }
   function handleResetMonth() {
-    setMonthIndex(
-      monthIndex === dayjs().month() 
-      ? monthIndex + Math.random() 
+    setIndex(
+      index === dayjs().month() 
+      ? index + Math.random() 
       : dayjs().month()
       );
   }

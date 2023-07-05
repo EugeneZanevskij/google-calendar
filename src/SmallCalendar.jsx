@@ -6,6 +6,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import "./SmallCalendar.css";
 import GlobalContext from './context/GlobalContext';
 import { MonthDate, useMonthDate } from './entities/monthDate';
+import { MonthButton, useMonthButton } from './features/monthButtons';
 
 const SmallCalendar = () => {
   const [currentMonthIndex, setCurrentMonthIndex] = useState(dayjs().month());
@@ -15,12 +16,12 @@ const SmallCalendar = () => {
   useEffect(() => {
     setCurrentMonthIndex(monthIndex);
   }, [monthIndex]);
-  const handlePrevMonth = () => {
-    setCurrentMonthIndex(currentMonthIndex - 1);
-  };
-  const handleNextMonth = () => {
-    setCurrentMonthIndex(currentMonthIndex + 1);
-  };
+  // const handlePrevMonth = () => {
+  //   setCurrentMonthIndex(currentMonthIndex - 1);
+  // };
+  // const handleNextMonth = () => {
+  //   setCurrentMonthIndex(currentMonthIndex + 1);
+  // };
 
   function getDayClass(day) {
     const format = 'DD/MM/YYYY';
@@ -40,20 +41,14 @@ const SmallCalendar = () => {
   }, [currentMonthIndex]);
 
   const monthFormat = useMonthDate(currentMonthIndex);
+  const [handlePrevMonth, handleNextMonth, ] = useMonthButton(currentMonthIndex, setCurrentMonthIndex);
 
   return (
     <div className='small-calendar'>
       <header className='small-calendar__header'>
-        {/* <p className='small-calendar__month'>
-          {dayjs(new Date(dayjs().year(), currentMonthIndex)).format('MMMM YYYY')}
-        </p> */}
         <MonthDate monthFormat={monthFormat}/>
-        <button onClick={handlePrevMonth} className='small-calendar__button'>
-          <ChevronLeftIcon />
-        </button>
-        <button onClick={handleNextMonth} className='small-calendar__button'>
-          <ChevronRightIcon />
-        </button>
+        <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon />}/>
+        <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon />}/>
       </header>
       <div className='small-calendar__body'>
         {currentMonth[0].map((day, index) => {

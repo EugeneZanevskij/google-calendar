@@ -6,7 +6,7 @@ export const MonthButton = ({
     children
   }) => {
   return (
-    <button onClick={handleClick} className={`header__month-button ${children === 'Today' ? 'header__month-button--today' : ''}`}>
+    <button onClick={handleClick} className={`month-button ${children === 'Today' ? 'month-button--today' : ''}`}>
       {children}
     </button>
   )

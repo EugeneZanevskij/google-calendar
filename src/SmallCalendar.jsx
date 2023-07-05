@@ -5,6 +5,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import "./SmallCalendar.css";
 import GlobalContext from './context/GlobalContext';
+import { MonthDate, useMonthDate } from './entities/monthDate';
 
 const SmallCalendar = () => {
   const [currentMonthIndex, setCurrentMonthIndex] = useState(dayjs().month());
@@ -38,13 +39,15 @@ const SmallCalendar = () => {
     setCurrentMonth(getMonth(currentMonthIndex));
   }, [currentMonthIndex]);
 
+  const monthFormat = useMonthDate(currentMonthIndex);
 
   return (
     <div className='small-calendar'>
       <header className='small-calendar__header'>
-        <p className='small-calendar__month'>
+        {/* <p className='small-calendar__month'>
           {dayjs(new Date(dayjs().year(), currentMonthIndex)).format('MMMM YYYY')}
-        </p>
+        </p> */}
+        <MonthDate monthFormat={monthFormat}/>
         <button onClick={handlePrevMonth} className='small-calendar__button'>
           <ChevronLeftIcon />
         </button>

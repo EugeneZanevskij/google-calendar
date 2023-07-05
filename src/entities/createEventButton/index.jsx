@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import './CreateEventButton.css';
+import './style.css';
 import AddIcon from '@mui/icons-material/Add';
-import GlobalContext from './context/GlobalContext';
+import GlobalContext from '../../context/GlobalContext';
 
 const CreateEventButton = () => {
   const {setShowEventModal} = useContext(GlobalContext);

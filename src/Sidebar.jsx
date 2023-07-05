@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Sidebar.css";
-import CreateEventButton from './CreateEventButton';
+import CreateEventButton from './entities/createEventButton';
 import SmallCalendar from './SmallCalendar';
 import Labels from './entities/labels';
 

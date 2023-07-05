@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import GlobalContext from './context/GlobalContext';
-import './Labels.css';
+import { Label } from './shared/ui/label/Label';
 
 const Labels = () => {
   const {labels, updateLabel} = useContext(GlobalContext);
@@ -8,20 +8,7 @@ const Labels = () => {
     <div className="labels">
     <p className="labels__title">Labels</p>
     {labels.map(({ label: lbl, checked }, idx) => (
-      <label key={idx} className="labels__labels">
-        <input
-          type="checkbox"
-          checked={checked}
-          onChange={() => updateLabel({ label: lbl, checked: !checked })}
-          className='labels__checkbox'
-        />
-        <span 
-          className={`labels__text`}
-          style={{ color: lbl }}
-        >
-          {lbl}
-        </span>
-      </label>
+      <Label lbl={lbl} checked={checked} idx={idx} updateLabel={() => updateLabel({ label: lbl, checked: !checked })} />
     ))}
     </div>
   )

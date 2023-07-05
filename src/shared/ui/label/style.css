@@ -1,11 +1,4 @@
-.labels {
-  margin-left: 1rem;
-  display: flex;
-  gap: 0.25rem;
-  flex-direction: column;
-}
-
-/* .labels__labels {
+.labels__label {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -13,7 +6,7 @@
   padding: 0.5rem;
 }
 
-.labels__labels:hover {
+.labels__label:hover {
   background-color: #ececec;
 }
 
@@ -26,4 +19,4 @@
 .labels__text {
   text-transform: capitalize;
   font-size: 1rem;
-} */
+}

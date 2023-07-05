@@ -5,35 +5,19 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import GlobalContext from '../../../context/GlobalContext';
 import dayjs from 'dayjs';
+import {MonthButton, useMonthButton} from '../../../features/monthButtons';
 
 export const Header = () => {
-  const {monthIndex, setMonthIndex} = useContext(GlobalContext);
-  function handlePrevMonth() {
-    setMonthIndex(monthIndex - 1);
-  }
-  function handleNextMonth() {
-    setMonthIndex(monthIndex + 1);
-  }
-  function handleResetMonth() {
-    setMonthIndex(
-      monthIndex === dayjs().month() 
-      ? monthIndex + Math.random() 
-      : dayjs().month()
-      );
-  }
+  const {monthIndex} = useContext(GlobalContext);
+
+  const [handlePrevMonth, handleNextMonth, handleResetMonth] = useMonthButton();
   return (
     <header className='header'>
       <img className='header__logo' src={logo} alt="logo" />
       <h1 className='header__title'>Calendar Clone</h1>
-      <button onClick={handleResetMonth} className='header__button header__button--today'>
-        Today
-      </button>
-      <button onClick={handlePrevMonth} className='header__button header__button--prev'>
-        <ChevronLeftIcon />
-      </button>
-      <button onClick={handleNextMonth} className='header__button header__button--next'>
-        <ChevronRightIcon />
-      </button>
+      <MonthButton handleClick={handleResetMonth} children='Today'/>
+      <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon />}/>
+      <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon />}/>
       <p className='header__month'>
         {dayjs(new Date(dayjs().year(), monthIndex)).format('MMMM YYYY')}
       </p>

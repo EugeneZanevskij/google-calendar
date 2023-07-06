@@ -13,7 +13,7 @@ import dayjs from 'dayjs';
 const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
 
 const EventModal = () => {
-  const {setShowEventModal, daySelected, dispatchCalEvents, selectedEvent} = useContext(GlobalContext);
+  const {setShowEventModal, daySelected, setDaySelected, dispatchCalEvents, selectedEvent} = useContext(GlobalContext);
   const [title, setTitle] = useState(
     selectedEvent ? selectedEvent.title : ''
   );
@@ -93,19 +93,29 @@ const EventModal = () => {
           <div className='event-modal__elements'>
           <div className='event-modal__element'>
             <ScheduleIcon/>
-            <p>{daySelected.format('dddd, MMMM DD')}</p>
+            <div className='event-modal__inputs'>
+              <input 
+                type="date"
+                placeholder='Add date'
+                value={daySelected.format('YYYY-MM-DD')}
+                onChange={(e) => { setDaySelected(dayjs(e.target.value));}}
+                className='event-modal__input-date'
+              />
+            </div>
           </div>
           <div className='event-modal__element'>
             <DescriptionIcon/>
-            <input 
-              type='text'
-              name='description'
-              placeholder='Add description'
-              className='event-modal__input'
-              required
-              value={description}
-              onChange={e => setDescription(e.target.value)}
-            />
+            <div className='event-modal__inputs'>
+              <input 
+                type='text'
+                name='description'
+                placeholder='Add description'
+                className='event-modal__input'
+                required
+                value={description}
+                onChange={e => setDescription(e.target.value)}
+              />
+            </div>
           </div>
           <div className='event-modal__element'> 
             {labels.map((label, i) => (

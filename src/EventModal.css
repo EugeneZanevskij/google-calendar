@@ -75,13 +75,31 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 .event-modal__element {
   display: flex;
   align-items: center;
-  margin: 0.5rem 0;
   gap: 1rem;
+}
+
+.event-modal__inputs {
+  padding: 0.5rem 0;
+  width: 100%;
+}
+.event-modal__inputs:hover {
+  background-color: #e0e0e0;
+}
+.event-modal__inputs:hover * {
+  background-color: #e0e0e0;
+}
+
+.event-modal__input-date {
+  padding: 0.25rem;
+}
+.event-modal__input-date:hover {
+  background-color: #cfcfcf;
 }
 
 .event-modal__input {
@@ -92,6 +110,14 @@
 
 .event-modal__input--title {
   margin-left: 2.5rem;
+}
+
+.event-modal__input-date {
+  border: none;
+}
+.event-modal__input-date:focus {
+  outline: none;
+  background-color: #fff;
 }
 
 .event-modal__input:focus {

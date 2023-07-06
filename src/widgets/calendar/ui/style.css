@@ -3,5 +3,5 @@
   height: calc(100vh - 3.6rem);
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 0.2fr repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }

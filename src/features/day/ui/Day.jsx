@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import './Day.css';
 import GlobalContext from '../../../context/GlobalContext';
 
-export const Day = ({day, weekday}) => {
+export const Day = ({day, index}) => {
   const {daySelected, setDaySelected, setShowEventModal, filteredEvents, setSelectedEvent} = useContext(GlobalContext);
 
   const [dayEvents, setDayEvents] = useState([]);
@@ -27,11 +27,13 @@ export const Day = ({day, weekday}) => {
     }
   }
 
+  function getMonthName(day) {
+    if (day.date() === 1) return day.format('MMM');
+    return '';
+  }
+
   return (
     <>
-      {weekday && <div className='weekday'>
-        <p className='day__weekday'>{weekday}</p>
-      </div>}
       {day && <div 
         onClick={() => {
           setDaySelected(day);
@@ -39,9 +41,15 @@ export const Day = ({day, weekday}) => {
         }}
         className='day'
       >
-        <p className={`day__date ${getDayClass(day)}`}>
-          {day.format('D')}
-        </p>
+        <div className='day__container'>
+          {index === 0 && 
+            <p className='day__weekday'>
+            {day.format('dd')}
+          </p>}
+          <p className={`day__date ${getDayClass(day)}`}>
+            {`${day.format('D')} ${getMonthName(day)}`}
+          </p>
+        </div>
         {dayEvents.map((event, i) => {
           return <p 
             key={i}

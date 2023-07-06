@@ -46,15 +46,17 @@ const SmallCalendar = () => {
   return (
     <div className='small-calendar'>
       <header className='small-calendar__header'>
-        <MonthDate monthFormat={monthFormat}/>
-        <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon />}/>
-        <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon />}/>
+        <MonthDate monthFormat={monthFormat} bool={true}/>
+        <div style={{display: 'flex'}}>
+          <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon />}/>
+          <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon />}/>
+        </div>
       </header>
       <div className='small-calendar__body'>
         {currentMonth[0].map((day, index) => {
-          return <span key={index} className='small-calendar__day'>
+          return <div key={index} className='small-calendar__day'>
             {day.format('dd')}
-          </span>;
+          </div>;
         })}
         {currentMonth.map((row, index) => {
           return (

@@ -50,33 +50,36 @@ const EventModal = () => {
   return (
     <div className='event-modal'>
       <form className='event-modal__form' onSubmit={handleSubmit}>
-        <div className='event-modal__header'>
+        <div className='event-modal__header' >
+          {selectedEvent && 
+          <>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setIsFormEdit(!isFormEdit)
+              }}
+              className='event-modal__edit'
+              >
+              <EditIcon />
+            </button>
+            <button
+              onClick={() => {
+                dispatchCalEvents({
+                  type: 'delete',
+                  payload: selectedEvent
+                });
+                setShowEventModal(false);
+            }}
+              className='event-modal__delete'
+              >
+              <DeleteIcon/>
+            </button>
+          </>
+          }
           <button onClick={() => setShowEventModal(false)} className='event-modal__close'>
             <CloseIcon/>
           </button>
         </div>
-        {selectedEvent && <button
-          onClick={() => {
-            dispatchCalEvents({
-              type: 'delete',
-              payload: selectedEvent
-            });
-            setShowEventModal(false);
-        }}
-          className='event-modal__delete'
-        >
-          <DeleteIcon/>
-        </button>}
-        {selectedEvent && <button
-          onClick={(e) => {
-            e.preventDefault();
-            setIsFormEdit(!isFormEdit)
-          }}
-          className='event-modal__edit'
-        >
-          <EditIcon />
-        </button>
-        }
         {(isFormEdit || !selectedEvent) &&
         <>
           <div className='event-modal__element'>

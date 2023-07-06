@@ -14,7 +14,7 @@
 .event-modal__form {
   position: relative;
   background-color: white;
-  padding: 3rem 2rem 2rem;
+  padding: 3rem 1rem 0.5rem 1.5rem;
   box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.2);
   width: 25rem;
   display: flex;
@@ -34,7 +34,7 @@
   align-items: center;
   top: 0;
   left: 0;
-  background-color: rgb(241,243,244);
+  background-color: rgb(241, 243, 244);
 }
 
 .event-modal__delete {
@@ -51,9 +51,10 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: rgb(95,99,104);
+  color: rgb(95, 99, 104);
   border-radius: 50%;
 }
+
 .event-modal__edit {
   position: absolute;
   top: 1rem;
@@ -76,21 +77,25 @@
   flex-direction: column;
   gap: 0.5rem;
   margin-top: 1rem;
+  width: 100%;
 }
 
 .event-modal__element {
   display: flex;
   align-items: center;
   gap: 1rem;
+  width: 100%;
 }
 
 .event-modal__inputs {
   padding: 0.5rem 0;
   width: 100%;
 }
+
 .event-modal__inputs:hover {
   background-color: #e0e0e0;
 }
+
 .event-modal__inputs:hover * {
   background-color: #e0e0e0;
 }
@@ -98,31 +103,37 @@
 .event-modal__input-date {
   padding: 0.25rem;
 }
+
 .event-modal__input-date:hover {
   background-color: #cfcfcf;
 }
 
-.event-modal__input {
+.event-modal__input--title {
   border: none;
   border-bottom: 1px solid #e8e8e8;
   font-size: 1.375rem;
+  margin-left: 2.5rem;
+  width: 100%;
 }
 
-.event-modal__input--title {
-  margin-left: 2.5rem;
+.event-modal__input:focus {
+  outline: none;
+  border-bottom: 2px solid rgb(25, 103, 210);
 }
 
 .event-modal__input-date {
   border: none;
 }
+
 .event-modal__input-date:focus {
   outline: none;
   background-color: #fff;
 }
 
-.event-modal__input:focus {
-  outline: none;
-  border-bottom: 2px solid rgb(25,103,210);
+.event-modal__textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .event-modal__label {

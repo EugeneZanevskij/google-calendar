@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import CheckIcon from '@mui/icons-material/Check';
 import DeleteIcon from '@mui/icons-material/Delete';
-import DescriptionIcon from '@mui/icons-material/Description';
+import SubjectIcon from '@mui/icons-material/Subject';
 import EditIcon from '@mui/icons-material/Edit';
 import "./EventModal.css";
 import dayjs from 'dayjs';
@@ -104,20 +104,19 @@ const EventModal = () => {
             </div>
           </div>
           <div className='event-modal__element'>
-            <DescriptionIcon/>
+            <SubjectIcon/>
             <div className='event-modal__inputs'>
-              <input 
-                type='text'
+              <textarea
                 name='description'
                 placeholder='Add description'
-                className='event-modal__input'
+                className='event-modal__input event-modal__textarea'
                 required
                 value={description}
                 onChange={e => setDescription(e.target.value)}
               />
             </div>
           </div>
-          <div className='event-modal__element'> 
+          <div className='event-modal__element' style={{justifyContent: 'center'}}> 
             {labels.map((label, i) => (
               <span
                 key={i}
@@ -148,7 +147,7 @@ const EventModal = () => {
             </div>
           </div>
           <div className='event-modal__element'>
-            <DescriptionIcon/>
+            <SubjectIcon/>
             {description}
           </div>
         </div>}

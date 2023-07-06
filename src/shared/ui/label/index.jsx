@@ -9,10 +9,10 @@ export const Label = ({lbl, checked, idx, updateLabel}) => {
           checked={checked}
           onChange={updateLabel}
           className='labels__checkbox'
+          style={{ accentColor: lbl }}
         />
         <span 
-          className={`labels__text`}
-          style={{ color: lbl }}
+          className='labels__text'
         >
           {lbl}
         </span>

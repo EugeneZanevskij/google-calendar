@@ -1,6 +1,13 @@
 .labels {
-  margin-left: 1rem;
+  margin-left: 1.25rem;
   display: flex;
-  gap: 0.25rem;
   flex-direction: column;
+  color: rgb(60,64,67);
+}
+
+.labels__title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 2rem;
+  margin-bottom: 0.25rem;
 }

@@ -7,7 +7,7 @@ const Labels = () => {
   const {labels, updateLabel} = useContext(GlobalContext);
   return (
     <div className="labels">
-    <p >Labels</p>
+    <p className="labels__title">Labels</p>
     {labels.map(({ label: lbl, checked }, idx) => (
       <Label lbl={lbl} checked={checked} idx={idx} updateLabel={() => updateLabel({ label: lbl, checked: !checked })} />
     ))}

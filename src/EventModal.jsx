@@ -50,9 +50,11 @@ const EventModal = () => {
   return (
     <div className='event-modal'>
       <form className='event-modal__form' onSubmit={handleSubmit}>
-        <button onClick={() => setShowEventModal(false)} className='event-modal__close'>
-          <CloseIcon/>
-        </button>
+        <div className='event-modal__header'>
+          <button onClick={() => setShowEventModal(false)} className='event-modal__close'>
+            <CloseIcon/>
+          </button>
+        </div>
         {selectedEvent && <button
           onClick={() => {
             dispatchCalEvents({
@@ -76,18 +78,19 @@ const EventModal = () => {
         </button>
         }
         {(isFormEdit || !selectedEvent) &&
-          <div className='event-modal__elements'>
+        <>
           <div className='event-modal__element'>
             <input 
               type='text'
               name='title'
               placeholder='Add title'
-              className='event-modal__input'
+              className='event-modal__input event-modal__input--title'
               required
               value={title}
               onChange={e => setTitle(e.target.value)}
               />
           </div>
+          <div className='event-modal__elements'>
           <div className='event-modal__element'>
             <ScheduleIcon/>
             <p>{daySelected.format('dddd, MMMM DD')}</p>
@@ -118,7 +121,9 @@ const EventModal = () => {
           <button onClick={handleSubmit} type='submit' className='event-modal__save'>
             {selectedEvent ? 'Update' : 'Save'}
           </button>
-        </div>}
+        </div>
+        </>
+        }
         {selectedEvent && !isFormEdit &&
         <div className='event-modal__elements'>
           <div className='event-modal__element'>

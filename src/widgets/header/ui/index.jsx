@@ -14,8 +14,10 @@ export const Header = () => {
       <img className='header__logo' src={logo} alt="logo" />
       <h1 className='header__title'>Calendar Clone</h1>
       <MonthButton handleClick={handleResetMonth} children='Today'/>
-      <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon />}/>
-      <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon />}/>
+      <div style={{display: 'flex'}}>
+        <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon />}/>
+        <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon />}/>
+      </div>
       <MonthDate monthFormat={monthFormat}/>
     </header>
   )

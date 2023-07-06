@@ -4,7 +4,7 @@ import './Day.css';
 import GlobalContext from '../../../context/GlobalContext';
 
 export const Day = ({day, index}) => {
-  const {daySelected, setDaySelected, setShowEventModal, filteredEvents, setSelectedEvent} = useContext(GlobalContext);
+  const {daySelected, setDaySelected, setDisplayEvent, filteredEvents, setSelectedEvent} = useContext(GlobalContext);
 
   const [dayEvents, setDayEvents] = useState([]);
   useEffect(() => {
@@ -37,7 +37,7 @@ export const Day = ({day, index}) => {
       {day && <div 
         onClick={() => {
           setDaySelected(day);
-          setShowEventModal(true);
+          setDisplayEvent(true);
         }}
         className='day'
       >

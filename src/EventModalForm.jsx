@@ -1,13 +1,10 @@
 import React, { useState, useContext } from 'react';
 import GlobalContext from './context/GlobalContext';
-import './EventModal.css';
 import CloseIcon from '@mui/icons-material/Close';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import CheckIcon from '@mui/icons-material/Check';
-// import DeleteIcon from '@mui/icons-material/Delete';
 import SubjectIcon from '@mui/icons-material/Subject';
-// import EditIcon from '@mui/icons-material/Edit';
-import "./EventModal.css";
+import "./EventModalForm.css";
 import dayjs from 'dayjs';
 
 const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];

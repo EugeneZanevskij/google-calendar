@@ -1,31 +1,31 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import GlobalContext from './context/GlobalContext';
-import './EventModal.css';
+import './EventModalForm.css';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import SubjectIcon from '@mui/icons-material/Subject';
 import dayjs from 'dayjs';
 
 const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
 
 const EventModalDisplay = () => {
-  const { setShowEventModal, daySelected, dispatchCalEvents, selectedEvent } = useContext(GlobalContext);
-  const [title, setTitle] = useState(
-    selectedEvent ? selectedEvent.title : ''
-  );
-  const [description, setDescription] = useState(
-    selectedEvent ? selectedEvent.description : ''
-  );
-  const [selectedLabel, setSelectedLabel] = useState(
-    selectedEvent ? labels.find(label => label === selectedEvent.label) : labels[0]
-  );
+  const { setShowEventModal, setDisplayEvent, daySelected, dispatchCalEvents, selectedEvent } = useContext(GlobalContext);
+  const selectedLabel = labels.find(label => label === selectedEvent.label);
 
   return (
     <div className='event-modal'>
       <div className='event-modal__form'>
         <div className='event-modal__header' >
-          <button onClick={() => setShowEventModal(false)} className='event-modal__close'>
-            <CloseIcon/>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setShowEventModal(true);
+              setDisplayEvent(false);
+            }}
+            className='event-modal__edit'
+            >
+            <EditIcon />
           </button>
           <button
             onClick={() => {
@@ -33,11 +33,14 @@ const EventModalDisplay = () => {
                 type: 'delete',
                 payload: selectedEvent
               });
-              setShowEventModal(false);
+              setDisplayEvent(false);
           }}
             className='event-modal__delete'
             >
             <DeleteIcon/>
+          </button>
+          <button onClick={() => setDisplayEvent(false)} className='event-modal__close'>
+            <CloseIcon/>
           </button>
         </div>
         {selectedEvent &&

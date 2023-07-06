@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import GlobalContext from './context/GlobalContext';
-import './EventModalForm.css';
+import './EventModalDisplay.css';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -15,15 +15,15 @@ const EventModalDisplay = () => {
 
   return (
     <div className='event-modal'>
-      <div className='event-modal__form'>
-        <div className='event-modal__header' >
+      <div className='event-display'>
+        <div className='event-display__header' >
           <button
             onClick={(e) => {
               e.preventDefault();
               setShowEventModal(true);
               setDisplayEvent(false);
             }}
-            className='event-modal__edit'
+            className='event-display__edit'
             >
             <EditIcon />
           </button>
@@ -35,7 +35,7 @@ const EventModalDisplay = () => {
               });
               setDisplayEvent(false);
           }}
-            className='event-modal__delete'
+            className='event-display__delete'
             >
             <DeleteIcon/>
           </button>
@@ -44,14 +44,14 @@ const EventModalDisplay = () => {
           </button>
         </div>
         {selectedEvent &&
-        <div className='event-modal__elements'>
-          <div className='event-modal__element'>
-            <span className='event-modal__span' style={{backgroundColor: selectedLabel}}/>
+        <div className='event-display__elements'>
+          <div className='event-display__element'>
+            <span className='event-display__span' style={{backgroundColor: selectedLabel, marginTop: '0.375rem'}}/>
             <div>
-              <h2 className='event-modal__title'>
+              <h2 className='event-display__title'>
                 {selectedEvent.title}
               </h2>
-              <div className='event-modal__date'>
+              <div className='event-display__date'>
                 {dayjs(daySelected).format('dddd, MMMM D')}
               </div>
             </div>

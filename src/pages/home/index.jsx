@@ -5,6 +5,7 @@ import {Header} from '../../widgets/header';
 import {Calendar} from '../../widgets/calendar';
 import Sidebar from '../../Sidebar';
 import GlobalContext from '../../context/GlobalContext';
+import EventModalForm from '../../EventModalForm';
 
 export const Home = () => {
   const [currentMonth, setCurrentMonth] = useState(getMonth());
@@ -14,7 +15,8 @@ export const Home = () => {
   }, [monthIndex]);
   return (
     <>
-      {showEventModal && <EventModal/>}
+      {/* {showEventModal && <EventModal/>} */}
+      {showEventModal && <EventModalForm/>}
       <Header/>
       <main className="main">
         <Sidebar/>

@@ -59,7 +59,10 @@ export const Day = ({day, index}) => {
             style={{backgroundColor: event.label}}
             className='day__event'
           >
-            {event.title}
+            {/* <div className='day__event-icon' style={{borderColor: event.label}}></div> */}
+            <p className='day__event-title'>
+              {event.title}
+            </p>
           </p>;
         })}
       </div>}

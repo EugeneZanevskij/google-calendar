@@ -11,3 +11,8 @@
   line-height: 2rem;
   margin-bottom: 0.25rem;
 }
+
+.labels__title:hover {
+  cursor: pointer;
+  background-color: #eae9e9;
+}

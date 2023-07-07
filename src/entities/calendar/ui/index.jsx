@@ -1,5 +1,5 @@
 import React from 'react';
-import {Day} from '../../../entities/day';
+import {Day} from '../../day';
 import './style.css';
 
 export const Calendar = ({month}) => {

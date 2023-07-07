@@ -4,7 +4,7 @@ import logo from './assets/calendar-image.png';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import MenuIcon from '@mui/icons-material/Menu';
-import {MonthButton, useMonthButton} from '../../../features/monthButtons';
+import {MonthButton, useMonthButton} from '../../../entities/monthButtons';
 import { MonthDate, useMonthDate } from '../../../entities/monthDate';
 import GlobalContext from '../../../context/GlobalContext';
 

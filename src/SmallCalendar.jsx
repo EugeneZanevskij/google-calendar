@@ -6,7 +6,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import "./SmallCalendar.css";
 import GlobalContext from './context/GlobalContext';
 import { MonthDate, useMonthDate } from './entities/monthDate';
-import { MonthButton, useMonthButton } from './features/monthButtons';
+import { MonthButton, useMonthButton } from './entities/monthButtons';
 
 const SmallCalendar = () => {
   const [currentMonthIndex, setCurrentMonthIndex] = useState(dayjs().month());

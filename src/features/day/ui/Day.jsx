@@ -53,7 +53,8 @@ export const Day = ({day, index}) => {
         {dayEvents.map((event, i) => {
           return <p 
             key={i}
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               setSelectedEvent(event);
               setDisplayEvent(true);
             }}

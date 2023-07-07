@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import './Day.css';
-import GlobalContext from './context/GlobalContext';
+import GlobalContext from '../../../context/GlobalContext';
 
-const Day = ({day, weekday}) => {
-  const {daySelected, setDaySelected, setShowEventModal, filteredEvents, setSelectedEvent} = useContext(GlobalContext);
+export const Day = ({day, index}) => {
+  const {daySelected, setDaySelected, setDisplayEvent, setShowEventModal, filteredEvents, setSelectedEvent} = useContext(GlobalContext);
 
   const [dayEvents, setDayEvents] = useState([]);
   useEffect(() => {
@@ -27,11 +27,13 @@ const Day = ({day, weekday}) => {
     }
   }
 
+  function getMonthName(day) {
+    if (day.date() === 1) return day.format('MMM');
+    return '';
+  }
+
   return (
     <>
-      {weekday && <div className='weekday'>
-        <p className='day__weekday'>{weekday}</p>
-      </div>}
       {day && <div 
         onClick={() => {
           setDaySelected(day);
@@ -39,24 +41,33 @@ const Day = ({day, weekday}) => {
         }}
         className='day'
       >
-        <p className={`day__date ${getDayClass(day)}`}>
-          {day.format('D')}
-        </p>
+        <div className='day__container'>
+          {index === 0 && 
+            <p className='day__weekday'>
+            {day.format('dd')}
+          </p>}
+          <p className={`day__date ${getDayClass(day)}`}>
+            {`${day.format('D')} ${getMonthName(day)}`}
+          </p>
+        </div>
         {dayEvents.map((event, i) => {
           return <p 
             key={i}
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               setSelectedEvent(event);
+              setDisplayEvent(true);
             }}
             style={{backgroundColor: event.label}}
             className='day__event'
           >
-            {event.title}
+            {/* <div className='day__event-icon' style={{borderColor: event.label}}></div> */}
+            <p className='day__event-title'>
+              {event.title}
+            </p>
           </p>;
         })}
       </div>}
     </>
   )
 }
-
-export default Day;

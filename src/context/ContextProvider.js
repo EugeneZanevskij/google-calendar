@@ -24,6 +24,7 @@ export default function ContextProvider(props) {
   const [monthIndex, setMonthIndex] = useState(dayjs().month()); 
   const [smallCalendarMonth, setSmallCalendarMonth] = useState(null); 
   const [daySelected, setDaySelected] = useState(dayjs());
+  const [displayEvent, setDisplayEvent] = useState(false);
   const [showEventModal, setShowEventModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [labels, setLabels] = useState([])
@@ -88,6 +89,8 @@ export default function ContextProvider(props) {
       setSmallCalendarMonth,
       daySelected,
       setDaySelected,
+      displayEvent,
+      setDisplayEvent,
       showEventModal,
       setShowEventModal,
       selectedEvent,

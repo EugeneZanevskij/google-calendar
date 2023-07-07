@@ -1,0 +1,143 @@
+.event-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.event-modal__form {
+  position: relative;
+  background-color: white;
+  padding: 3rem 1rem 0.5rem 1.5rem;
+  box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.2);
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.event-modal__header {
+  width: 100%;
+  height: 2.25rem;
+  padding-right: 0.5rem;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgb(241, 243, 244);
+}
+
+.event-modal__close {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgb(95, 99, 104);
+  border-radius: 50%;
+}
+
+.event-modal__close:hover {
+  background-color: rgba(226, 225, 225, 0.6);
+}
+
+.event-modal__elements {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.event-modal__element {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.event-modal__inputs {
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.event-modal__inputs:hover {
+  background-color: #e0e0e0;
+}
+
+.event-modal__inputs:hover * {
+  background-color: #e0e0e0;
+}
+
+.event-modal__input-date {
+  padding: 0.25rem;
+}
+
+.event-modal__input-date:hover {
+  background-color: #cfcfcf;
+}
+
+.event-modal__input--title {
+  border: none;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 1.375rem;
+  margin-left: 2.5rem;
+  width: 100%;
+}
+
+.event-modal__input:focus {
+  outline: none;
+  border-bottom: 2px solid rgb(25, 103, 210);
+}
+
+.event-modal__input-date {
+  border: none;
+}
+
+.event-modal__input-date:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+.event-modal__textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0.5rem 0.5rem 0; 
+  background-color: rgb(241,243,244);
+}
+
+.event-modal__label {
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e8e8e8;
+}
+
+.event-modal__save {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  align-self: flex-end;
+}
+
+.event-modal__save:hover {
+  background-color: #0d8bf2;
+}

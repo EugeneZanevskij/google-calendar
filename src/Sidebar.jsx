@@ -1,8 +1,8 @@
 import React from 'react';
 import "./Sidebar.css";
-import CreateEventButton from './CreateEventButton';
+import CreateEventButton from './entities/createEventButton';
 import SmallCalendar from './SmallCalendar';
-import Labels from './Labels';
+import Labels from './entities/labels';
 
 const Sidebar = () => {
   return (

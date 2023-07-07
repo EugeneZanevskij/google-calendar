@@ -1,6 +1,6 @@
 .small-calendar {
   width: calc(100% - 2rem);
-  margin: 0 1rem 0;
+  margin: 3rem 1rem 0;
 }
 
 .small-calendar__header {

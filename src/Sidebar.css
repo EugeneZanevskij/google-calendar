@@ -7,3 +7,8 @@
   height: calc(100vh - 3.6rem);
   overflow-y: scroll;
 }
+
+.sidebar--closed {
+  visibility: hidden;
+  min-width: 0;
+}

@@ -55,6 +55,7 @@ export const Day = ({day, index}) => {
             key={i}
             onClick={(e) => {
               e.stopPropagation();
+              setDaySelected(day);
               setSelectedEvent(event);
               setDisplayEvent(true);
             }}

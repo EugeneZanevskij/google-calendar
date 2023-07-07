@@ -29,6 +29,7 @@ const EventModalForm = () => {
       day: daySelected,
       id: selectedEvent ? selectedEvent.id : Date.now()
     };
+    calEvent.title = calEvent.title ? calEvent.title : '(No title)';
     if (selectedEvent) {
       dispatchCalEvents({
         type: 'update',
@@ -58,6 +59,7 @@ const EventModalForm = () => {
             placeholder='Add title'
             className='event-modal__input event-modal__input--title'
             required
+            autoFocus
             value={title}
             onChange={e => setTitle(e.target.value)}
             />

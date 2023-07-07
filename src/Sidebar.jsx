@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import "./Sidebar.css";
 import CreateEventButton from './entities/createEventButton';
-import SmallCalendar from './SmallCalendar';
+import SmallCalendar from './entities/smallCalendar/SmallCalendar';
 import Labels from './entities/labels';
 import GlobalContext from './context/GlobalContext';
 

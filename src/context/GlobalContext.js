@@ -3,6 +3,8 @@ import React from 'react';
 const GlobalContext = React.createContext({
   monthIndex: 0,
   setMonthIndex: (index) => {},
+  openSidebar: true,
+  setOpenSidebar: () => {},
   smallCalendarMonth: 0,
   setSmallCalendarMonth: (index) => {},
   daySelected: null,

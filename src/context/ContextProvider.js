@@ -22,6 +22,7 @@ function initEvents() {
 
 export default function ContextProvider(props) {
   const [monthIndex, setMonthIndex] = useState(dayjs().month()); 
+  const [openSidebar, setOpenSidebar] = useState(true);
   const [smallCalendarMonth, setSmallCalendarMonth] = useState(null); 
   const [daySelected, setDaySelected] = useState(dayjs());
   const [displayEvent, setDisplayEvent] = useState(false);
@@ -85,6 +86,8 @@ export default function ContextProvider(props) {
     <GlobalContext.Provider value={{
       monthIndex,
       setMonthIndex,
+      openSidebar,
+      setOpenSidebar,
       smallCalendarMonth,
       setSmallCalendarMonth,
       daySelected,

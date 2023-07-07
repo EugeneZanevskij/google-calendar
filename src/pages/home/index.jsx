@@ -9,7 +9,7 @@ import EventModalDisplay from '../../EventModalDisplay';
 
 export const Home = () => {
   const [currentMonth, setCurrentMonth] = useState(getMonth());
-  const {monthIndex, showEventModal, displayEvent} = useContext(GlobalContext);
+  const {monthIndex, openSidebar, showEventModal, displayEvent} = useContext(GlobalContext);
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));
   }, [monthIndex]);
@@ -19,7 +19,7 @@ export const Home = () => {
       {displayEvent && <EventModalDisplay/>}
       <Header/>
       <main className="main">
-        <Sidebar/>
+        {openSidebar && <Sidebar/>}
         <Calendar month={currentMonth}/>
       </main>
     </>

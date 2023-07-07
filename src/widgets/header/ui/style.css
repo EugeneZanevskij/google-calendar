@@ -9,6 +9,15 @@
   font-family: "Google Sans",Roboto,Arial,sans-serif;
 }
 
+.header__menu {
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.header__menu:hover {
+  background-color: #e0e0e0;
+}
+
 .header__logo {
   height: 2.5rem;
 }

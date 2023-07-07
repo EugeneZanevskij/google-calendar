@@ -48,8 +48,8 @@ const SmallCalendar = () => {
       <header className='small-calendar__header'>
         <MonthDate monthFormat={monthFormat} bool={true}/>
         <div style={{display: 'flex'}}>
-          <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon />}/>
-          <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon />}/>
+          <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon/>}/>
+          <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon/>}/>
         </div>
       </header>
       <div className='small-calendar__body'>

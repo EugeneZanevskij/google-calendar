@@ -16,12 +16,6 @@ const SmallCalendar = () => {
   useEffect(() => {
     setCurrentMonthIndex(monthIndex);
   }, [monthIndex]);
-  // const handlePrevMonth = () => {
-  //   setCurrentMonthIndex(currentMonthIndex - 1);
-  // };
-  // const handleNextMonth = () => {
-  //   setCurrentMonthIndex(currentMonthIndex + 1);
-  // };
 
   function getDayClass(day) {
     const format = 'DD/MM/YYYY';
@@ -48,8 +42,8 @@ const SmallCalendar = () => {
       <header className='small-calendar__header'>
         <MonthDate monthFormat={monthFormat} bool={true}/>
         <div style={{display: 'flex'}}>
-          <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon />}/>
-          <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon />}/>
+          <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon/>}/>
+          <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon/>}/>
         </div>
       </header>
       <div className='small-calendar__body'>
@@ -69,7 +63,7 @@ const SmallCalendar = () => {
                       setDaySelected(day);
                       setShowEventModal(true);
                     }}
-                    className={`small-calendar__day-button ${getDayClass(day)}`}>
+                    className={`small-calendar__day-button ${getDayClass(day)} ${day.month() === currentMonthIndex ? '' : 'small-calendar__day-button--other'}`}>
                   {day.format('D')}
                 </button>;
               })}

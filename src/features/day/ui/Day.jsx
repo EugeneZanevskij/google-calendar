@@ -46,7 +46,7 @@ export const Day = ({day, index}) => {
             <p className='day__weekday'>
             {day.format('dd')}
           </p>}
-          <p className={`day__date ${getDayClass(day)}`}>
+          <p className={`day__date ${getDayClass(day)} ${ day < dayjs() ? 'day__date--prev' : ''}`}>
             {`${day.format('D')} ${getMonthName(day)}`}
           </p>
         </div>
@@ -55,11 +55,12 @@ export const Day = ({day, index}) => {
             key={i}
             onClick={(e) => {
               e.stopPropagation();
+              setDaySelected(day);
               setSelectedEvent(event);
               setDisplayEvent(true);
             }}
             style={{backgroundColor: event.label}}
-            className='day__event'
+            className={`day__event ${ day.date() < dayjs().date() ? 'day__event--prev' : ''}`}
           >
             {/* <div className='day__event-icon' style={{borderColor: event.label}}></div> */}
             <p className='day__event-title'>

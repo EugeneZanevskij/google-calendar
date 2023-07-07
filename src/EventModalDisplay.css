@@ -1,7 +1,7 @@
 .event-display {
   position: relative;
   background-color: white;
-  box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
   width: 25rem;
   padding-bottom: 1.25rem;
   display: flex;

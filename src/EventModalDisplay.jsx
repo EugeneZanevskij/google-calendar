@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import GlobalContext from './context/GlobalContext';
 import './EventModalDisplay.css';
 import CloseIcon from '@mui/icons-material/Close';
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditIcon from '@mui/icons-material/Edit';
 import SubjectIcon from '@mui/icons-material/Subject';
 import EventIcon from '@mui/icons-material/Event';
@@ -40,7 +40,7 @@ const EventModalDisplay = () => {
           }}
             className='event-display__delete'
             >
-            <DeleteIcon/>
+            <DeleteOutlineOutlinedIcon/>
           </button>
           <button onClick={() => {setDisplayEvent(false); setSelectedEvent(null);}} className='event-modal__close'>
             <CloseIcon/>

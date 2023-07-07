@@ -10,7 +10,7 @@ import dayjs from 'dayjs';
 const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
 
 const EventModalDisplay = () => {
-  const { setShowEventModal, setDisplayEvent, daySelected, dispatchCalEvents, selectedEvent } = useContext(GlobalContext);
+  const { setShowEventModal, setDisplayEvent, daySelected, dispatchCalEvents, selectedEvent, setSelectedEvent } = useContext(GlobalContext);
   const selectedLabel = labels.find(label => label === selectedEvent.label);
 
   return (
@@ -34,12 +34,13 @@ const EventModalDisplay = () => {
                 payload: selectedEvent
               });
               setDisplayEvent(false);
+              setSelectedEvent(null);
           }}
             className='event-display__delete'
             >
             <DeleteIcon/>
           </button>
-          <button onClick={() => setDisplayEvent(false)} className='event-modal__close'>
+          <button onClick={() => {setDisplayEvent(false); setSelectedEvent(null);}} className='event-modal__close'>
             <CloseIcon/>
           </button>
         </div>

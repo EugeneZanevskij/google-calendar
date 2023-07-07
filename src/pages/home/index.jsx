@@ -4,7 +4,7 @@ import {Header} from '../../widgets/header';
 import {Calendar} from '../../entities/calendar';
 import Sidebar from '../../Sidebar';
 import GlobalContext from '../../context/GlobalContext';
-import EventModalForm from '../../EventModalForm';
+import EventModalForm from '../../features/eventModalForm';
 import EventModalDisplay from '../../entities/eventModalDisplay';
 
 export const Home = () => {

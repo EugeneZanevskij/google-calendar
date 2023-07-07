@@ -36,6 +36,7 @@
   padding: 0;
   margin: auto;
   font-size: 0.625rem;
+  font-weight: 500;
 }
 
 .small-calendar__day-button:hover {
@@ -49,4 +50,8 @@
 .small-calendar__day-button--selected {
   color: rgb(24,90,188);
   background-color: rgb(210,227,252);
+}
+
+.small-calendar__day-button--other {
+  color: #696969;
 }

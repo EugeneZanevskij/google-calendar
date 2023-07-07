@@ -26,6 +26,10 @@
   background-color: #e8e8e8;
 }
 
+.day__date--prev {
+  color: #767676;
+}
+
 .day__event {
   display: flex;
   align-items: center;
@@ -38,6 +42,10 @@
   padding: 0.25rem;
   border-radius: 0.25rem;
   overflow: hidden;
+}
+
+.day__event--prev {
+  opacity: 0.4;
 }
 
 .day--current {

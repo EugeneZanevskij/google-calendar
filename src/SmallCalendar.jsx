@@ -16,12 +16,6 @@ const SmallCalendar = () => {
   useEffect(() => {
     setCurrentMonthIndex(monthIndex);
   }, [monthIndex]);
-  // const handlePrevMonth = () => {
-  //   setCurrentMonthIndex(currentMonthIndex - 1);
-  // };
-  // const handleNextMonth = () => {
-  //   setCurrentMonthIndex(currentMonthIndex + 1);
-  // };
 
   function getDayClass(day) {
     const format = 'DD/MM/YYYY';
@@ -69,7 +63,7 @@ const SmallCalendar = () => {
                       setDaySelected(day);
                       setShowEventModal(true);
                     }}
-                    className={`small-calendar__day-button ${getDayClass(day)}`}>
+                    className={`small-calendar__day-button ${getDayClass(day)} ${day.month() === currentMonthIndex ? '' : 'small-calendar__day-button--other'}`}>
                   {day.format('D')}
                 </button>;
               })}

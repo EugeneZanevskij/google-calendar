@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import GlobalContext from './context/GlobalContext';
+import GlobalContext from '../../context/GlobalContext';
 import './EventModalDisplay.css';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';

@@ -5,7 +5,7 @@ import {Calendar} from '../../entities/calendar';
 import Sidebar from '../../Sidebar';
 import GlobalContext from '../../context/GlobalContext';
 import EventModalForm from '../../EventModalForm';
-import EventModalDisplay from '../../EventModalDisplay';
+import EventModalDisplay from '../../entities/eventModalDisplay';
 
 export const Home = () => {
   const [currentMonth, setCurrentMonth] = useState(getMonth());

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import GlobalContext from './context/GlobalContext';
+import GlobalContext from '../../context/GlobalContext';
 import CloseIcon from '@mui/icons-material/Close';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import CheckIcon from '@mui/icons-material/Check';

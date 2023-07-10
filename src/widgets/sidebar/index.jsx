@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import "./Sidebar.css";
-import CreateEventButton from './entities/createEventButton';
-import SmallCalendar from './SmallCalendar';
-import Labels from './entities/labels';
-import GlobalContext from './context/GlobalContext';
+import CreateEventButton from '../../entities/createEventButton';
+import SmallCalendar from '../../entities/smallCalendar/SmallCalendar';
+import Labels from '../../entities/labels';
+import GlobalContext from '../../context/GlobalContext';
 
 const Sidebar = () => {
   const {openSidebar} = useContext(GlobalContext);

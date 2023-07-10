@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { getMonth } from '../../util';
 import {Header} from '../../widgets/header';
-import {Calendar} from '../../widgets/calendar';
-import Sidebar from '../../Sidebar';
+import {Calendar} from '../../entities/calendar';
+import Sidebar from '../../widgets/sidebar';
 import GlobalContext from '../../context/GlobalContext';
-import EventModalForm from '../../EventModalForm';
-import EventModalDisplay from '../../EventModalDisplay';
+import EventModalForm from '../../features/eventModalForm';
+import EventModalDisplay from '../../entities/eventModalDisplay';
 
 export const Home = () => {
   const [currentMonth, setCurrentMonth] = useState(getMonth());

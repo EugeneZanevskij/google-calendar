@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import './Day.css';
+import { DayEvent, useDayEvent } from '../../dayEvent';
 import GlobalContext from '../../../context/GlobalContext';
 
 export const Day = ({day, index}) => {
-  const {daySelected, setDaySelected, setDisplayEvent, setShowEventModal, filteredEvents, setSelectedEvent} = useContext(GlobalContext);
-
+  const {daySelected, setDaySelected, setShowEventModal, filteredEvents} = useContext(GlobalContext);
+  const {handleClick, dayEventStyle} = useDayEvent({ day });
   const [dayEvents, setDayEvents] = useState([]);
   useEffect(() => {
     const events = filteredEvents.filter((event) => {
@@ -51,22 +52,7 @@ export const Day = ({day, index}) => {
           </p>
         </div>
         {dayEvents.map((event, i) => {
-          return <p 
-            key={i}
-            onClick={(e) => {
-              e.stopPropagation();
-              setDaySelected(day);
-              setSelectedEvent(event);
-              setDisplayEvent(true);
-            }}
-            style={{backgroundColor: event.label}}
-            className={`day__event ${ day.date() < dayjs().date() ? 'day__event--prev' : ''}`}
-          >
-            {/* <div className='day__event-icon' style={{borderColor: event.label}}></div> */}
-            <p className='day__event-title'>
-              {event.title}
-            </p>
-          </p>;
+          return (<DayEvent index={i} event={event} handleClick={handleClick} dayEventStyle={dayEventStyle}/>);
         })}
       </div>}
     </>

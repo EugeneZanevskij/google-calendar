@@ -1,0 +1,19 @@
+.day__event {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  text-align: center;
+  color:azure;
+  font-size: 0.75rem;
+  min-height: 1.125rem;
+  max-height: 1.125rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.day__event--prev {
+  opacity: 0.4;
+}

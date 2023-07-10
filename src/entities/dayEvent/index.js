@@ -1,2 +1,2 @@
 export {DayEvent} from './ui/DayEvent';
-export {useDayEvent} from './lib/useDayEvent';
+export {useDayEvent} from './model/useDayEvent';

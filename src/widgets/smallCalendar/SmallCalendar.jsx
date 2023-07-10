@@ -5,7 +5,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import "./SmallCalendar.css";
 import GlobalContext from '../../context/GlobalContext';
-import { MonthDate, useMonthDate } from '../monthDate';
+import { MonthDate, useMonthDate } from '../../shared/ui/monthDate';
 import { MonthButton, useMonthButton } from '../monthButtons';
 import { SmallDay, useSmallDay } from '../smallDay';
 

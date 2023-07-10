@@ -1,2 +1,2 @@
 export {SmallDay} from './ui/SmallDay';
-export {useSmallDay} from './lib/useSmallDay';
+export {useSmallDay} from './model/useSmallDay';

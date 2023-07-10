@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
-import GlobalContext from '../../context/GlobalContext';
-import { Label } from '../../shared/ui/index';
+import GlobalContext from '../../../context/GlobalContext';
+import { Label } from '../../../shared/ui/label';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import './style.css';
 

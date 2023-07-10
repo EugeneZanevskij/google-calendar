@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import './Day.css';
-import { DayEvent, useDayEvent } from '../../dayEvent';
+import { DayEvent } from '../../dayEvent';
 import GlobalContext from '../../../context/GlobalContext';
 
 export const Day = ({day, index}) => {
   const {daySelected, setDaySelected, setShowEventModal, filteredEvents} = useContext(GlobalContext);
-  const {handleClick, dayEventStyle} = useDayEvent({ day });
   const [dayEvents, setDayEvents] = useState([]);
   useEffect(() => {
     const events = filteredEvents.filter((event) => {
@@ -52,7 +51,7 @@ export const Day = ({day, index}) => {
           </p>
         </div>
         {dayEvents.map((event, i) => {
-          return (<DayEvent index={i} event={event} handleClick={handleClick} dayEventStyle={dayEventStyle}/>);
+          return (<DayEvent index={i} event={event} day={day} />);
         })}
       </div>}
     </>

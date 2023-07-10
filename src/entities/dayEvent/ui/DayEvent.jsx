@@ -1,12 +1,17 @@
 import React from 'react';
 import './style.css';
+import { useDayEvent } from '../model/useDayEvent';
 
 export const DayEvent = ({
   index,
   event,
-  handleClick,
-  dayEventStyle
+  day
+  // handleClick,
+  // dayEventStyle
 }) => {
+  const {handleClick, dayEventStyle} = useDayEvent({
+    day
+  })
   return (
     <p key={index}
       onClick={(e) => {

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import GlobalContext from '../../../context/GlobalContext';
-import { Label } from '../../../shared/ui/label';
+import { LabelCheckbox } from '../../../shared/ui';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import './style.css';
 
@@ -15,7 +15,7 @@ const Labels = () => {
     </div>
     {isActive &&
     labels.map(({ label: lbl, checked }, idx) => (
-      <Label lbl={lbl} checked={checked} idx={idx} updateLabel={() => updateLabel({ label: lbl, checked: !checked })} />
+      <LabelCheckbox lbl={lbl} checked={checked} idx={idx} updateLabel={() => updateLabel({ label: lbl, checked: !checked })} />
     ))}
     </div>
   )

@@ -1,18 +1,18 @@
 import React from 'react';
 import './style.css';
 
-export const Label = ({lbl, checked, idx, updateLabel}) => {
+export const LabelCheckbox = ({lbl, checked, idx, updateLabel}) => {
   return (
-    <label key={idx} className="labels__label">
+    <label key={idx} className="label-checkbox">
         <input
           type="checkbox"
           checked={checked}
           onChange={updateLabel}
-          className='labels__checkbox'
+          className='label-checkbox__input'
           style={{ accentColor: lbl }}
         />
         <span 
-          className='labels__text'
+          className='label-checkbox__text'
         >
           {lbl}
         </span>

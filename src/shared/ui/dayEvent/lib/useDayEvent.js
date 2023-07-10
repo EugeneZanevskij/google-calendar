@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import GlobalContext from '../../../context/GlobalContext';
+import GlobalContext from '../../../../context/GlobalContext';
 import dayjs from 'dayjs';
 
 export const useDayEvent = ({

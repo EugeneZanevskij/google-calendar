@@ -1,2 +1,2 @@
 export {MonthDate} from './ui/MonthDate';
-export {useMonthFormat} from './lib/useMonthDate';
+export {useMonthFormat} from './model/useMonthFormat';

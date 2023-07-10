@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import "./Sidebar.css";
-import CreateEventButton from '../../shared/ui/createEventButton';
+import CreateEventButton from '../../entities/createEventButton';
 import SmallCalendar from '../../entities/smallCalendar/SmallCalendar';
 import Labels from '../../entities/labels/ui';
 import GlobalContext from '../../context/GlobalContext';

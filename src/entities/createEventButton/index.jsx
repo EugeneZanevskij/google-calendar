@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './style.css';
-import GlobalContext from '../../../context/GlobalContext';
+import GlobalContext from '../../context/GlobalContext';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 const CreateEventButton = () => {

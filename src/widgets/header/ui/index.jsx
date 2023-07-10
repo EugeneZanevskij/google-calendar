@@ -5,13 +5,12 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import MenuIcon from '@mui/icons-material/Menu';
 import {MonthButton, useMonthButton} from '../../../entities/monthButtons';
-import { MonthDate, useMonthDate } from '../../../shared/ui/monthDate';
+import { MonthDate, useMonthFormat } from '../../../entities/monthDate';
 import GlobalContext from '../../../context/GlobalContext';
 
 export const Header = () => {
   const {openSidebar, setOpenSidebar} = useContext(GlobalContext);
   const [handlePrevMonth, handleNextMonth, handleResetMonth] = useMonthButton();
-  const monthFormat = useMonthDate();
   return (
     <header className='header'>
       <MenuIcon className='header__menu' style={{fontSize: '2.25rem'}} onClick={() => setOpenSidebar(!openSidebar)}/>
@@ -22,7 +21,7 @@ export const Header = () => {
         <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon />}/>
         <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon />}/>
       </div>
-      <MonthDate monthFormat={monthFormat}/>
+      <MonthDate monthFormat={useMonthFormat()}/>
     </header>
   )
 }

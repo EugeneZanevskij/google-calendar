@@ -5,7 +5,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import "./SmallCalendar.css";
 import GlobalContext from '../../context/GlobalContext';
-import { MonthDate, useMonthDate } from '../../shared/ui/monthDate';
+import { MonthDate, useMonthFormat } from '../../entities/monthDate';
 import { MonthButton, useMonthButton } from '../../entities/monthButtons';
 import { SmallDay, useSmallDay } from '../../entities/smallDay';
 
@@ -23,7 +23,7 @@ const SmallCalendar = () => {
     setCurrentMonth(getMonth(currentMonthIndex));
   }, [currentMonthIndex]);
 
-  const monthFormat = useMonthDate(currentMonthIndex);
+  const monthFormat = useMonthFormat(currentMonthIndex);
   const [handlePrevMonth, handleNextMonth, ] = useMonthButton(currentMonthIndex, setCurrentMonthIndex);
 
   return (

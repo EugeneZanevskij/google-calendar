@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import './Day.css';
-import { DayEvent, useDayEvent } from '../../dayEvent';
+import { DayEvent, useDayEvent } from '../../../shared/dayEvent';
 import GlobalContext from '../../../context/GlobalContext';
 
 export const Day = ({day, index}) => {

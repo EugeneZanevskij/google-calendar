@@ -2,9 +2,7 @@ import { useContext } from 'react'
 import GlobalContext from '../../../context/GlobalContext';
 import dayjs from 'dayjs';
 
-export const useDayEvent = ({
-  day
-}) => {
+export const useDayEvent = (day) => {
   const { setDaySelected, setSelectedEvent, setDisplayEvent} = useContext(GlobalContext);
   function handleClick(event) {
     setDaySelected(day);

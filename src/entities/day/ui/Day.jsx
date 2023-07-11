@@ -51,7 +51,7 @@ export const Day = ({day, index}) => {
           </p>
         </div>
         {dayEvents.map((event, i) => {
-          return (<DayEvent index={i} event={event} day={day} />);
+          return (<DayEvent key={i} event={event} day={day} />);
         })}
       </div>}
     </>

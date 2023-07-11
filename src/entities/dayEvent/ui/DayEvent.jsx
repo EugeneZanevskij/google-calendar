@@ -3,13 +3,12 @@ import './style.css';
 import { useDayEvent } from '../model/useDayEvent';
 
 export const DayEvent = ({
-  index,
   event,
   day
 }) => {
   const {handleClick, dayEventStyle} = useDayEvent(day);
   return (
-    <p key={index}
+    <p
       onClick={(e) => {
         e.stopPropagation();
         handleClick(event);

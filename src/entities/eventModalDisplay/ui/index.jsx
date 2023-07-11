@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import GlobalContext from '../../../context/GlobalContext';
+import React from 'react';
 import './EventModalDisplay.css';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
@@ -9,12 +8,10 @@ import EventIcon from '@mui/icons-material/Event';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import dayjs from 'dayjs';
 import { Button } from '../../../shared/ui';
-
-const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
+import { useEventDisplay } from '../model/useEventDisplay';
 
 export const EventModalDisplay = () => {
-  const { setShowEventModal, setDisplayEvent, daySelected, dispatchCalEvents, selectedEvent, setSelectedEvent } = useContext(GlobalContext);
-  const selectedLabel = labels.find(label => label === selectedEvent.label);
+  const {daySelected, selectedEvent, selectedLabel, closeEventDisplay, deleteEventDisplay, editEventDisplay} = useEventDisplay();
 
   return (
     <div className='event-modal'>
@@ -23,30 +20,18 @@ export const EventModalDisplay = () => {
           <Button
             classStyle={'event-display__edit'}
             handleClick={(e) => {
-              e.preventDefault();
-              setShowEventModal(true);
-              setDisplayEvent(false);
+              editEventDisplay(e);
             }}
             children={<EditIcon />}
           />
           <Button
             classStyle={'event-display__delete'}
-            handleClick={() => {
-              dispatchCalEvents({
-                type: 'delete',
-                payload: selectedEvent
-              });
-              setDisplayEvent(false);
-              setSelectedEvent(null);
-            }}
+            handleClick={deleteEventDisplay}
             children={<DeleteOutlineOutlinedIcon />}
           />
           <Button
             classStyle={'event-modal__close'}
-            handleClick={() => {
-              setDisplayEvent(false); 
-              setSelectedEvent(null);
-            }}
+            handleClick={closeEventDisplay}
             children={<CloseIcon />}
           />
         </div>

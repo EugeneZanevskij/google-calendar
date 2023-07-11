@@ -1,13 +1,16 @@
 import React from 'react';
 import './style.css';
+import { Button } from '../../../shared/ui';
 
 export const MonthButton = ({
     handleClick,
     children
   }) => {
   return (
-    <button onClick={handleClick} className={`month-button ${children === 'Today' ? 'month-button--today' : ''}`}>
-      {children}
-    </button>
+    <Button 
+      classStyle={`month-button ${children === 'Today' ? 'month-button--today' : ''}`}
+      handleClick={handleClick} 
+      children={1}
+    />
   )
 };

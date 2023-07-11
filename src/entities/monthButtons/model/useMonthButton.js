@@ -19,5 +19,5 @@ export const useMonthButton = (monthIdx, setMonthIdx) => {
       : dayjs().month()
       );
   }
-  return [handlePrevMonth, handleNextMonth, handleResetMonth];
+  return {handlePrevMonth, handleNextMonth, handleResetMonth};
 }

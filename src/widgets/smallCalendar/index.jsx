@@ -1,12 +1,10 @@
 import dayjs from 'dayjs';
 import React, { useState, useEffect, useContext } from 'react';
 import { getMonth } from '../../util';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import "./SmallCalendar.css";
 import GlobalContext from '../../context/GlobalContext';
 import { MonthDate } from '../../entities/monthDate';
-import { MonthButton, useMonthButton } from '../../entities/monthButtons';
+import { MonthButton } from '../../entities/monthButtons';
 import { SmallDay } from '../../entities/smallDay';
 
 const SmallCalendar = () => {
@@ -22,15 +20,19 @@ const SmallCalendar = () => {
     setCurrentMonth(getMonth(currentMonthIndex));
   }, [currentMonthIndex]);
 
-  const [handlePrevMonth, handleNextMonth, ] = useMonthButton(currentMonthIndex, setCurrentMonthIndex);
-
   return (
     <div className='small-calendar'>
       <header className='small-calendar__header'>
         <MonthDate monthIdx={currentMonthIndex}/>
         <div style={{display: 'flex'}}>
-          <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon/>}/>
-          <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon/>}/>
+          <MonthButton 
+            action={'prev'} 
+            monthState={{monthIdx: currentMonthIndex, setMonthIdx: setCurrentMonthIndex}}
+          />
+          <MonthButton 
+            action={'next'} 
+            monthState={{monthIdx: currentMonthIndex, setMonthIdx: setCurrentMonthIndex}}
+          />
         </div>
       </header>
       <div className='small-calendar__body'>

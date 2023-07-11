@@ -5,7 +5,7 @@ import {SmallCalendar} from '../smallCalendar';
 import {LabelsAccordion} from '../labelsAccordion';
 import GlobalContext from '../../context/GlobalContext';
 
-const Sidebar = () => {
+export const Sidebar = () => {
   const {openSidebar} = useContext(GlobalContext);
   return (
     <aside className={`sidebar ${!openSidebar ? 'sidebar--closed' : ''}`}>
@@ -18,6 +18,4 @@ const Sidebar = () => {
       }
     </aside>
   )
-}
-
-export default Sidebar
+};

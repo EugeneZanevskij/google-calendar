@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import GlobalContext from '../../context/GlobalContext';
+import GlobalContext from '../../../context/GlobalContext';
 import CloseIcon from '@mui/icons-material/Close';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import CheckIcon from '@mui/icons-material/Check';
@@ -9,7 +9,7 @@ import dayjs from 'dayjs';
 
 const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
 
-const EventModalForm = () => {
+export const EventModalForm = () => {
   const {setShowEventModal, daySelected, setDaySelected, dispatchCalEvents, selectedEvent} = useContext(GlobalContext);
   const [title, setTitle] = useState(
     selectedEvent ? selectedEvent.title : ''
@@ -109,5 +109,3 @@ const EventModalForm = () => {
     </div>
   );
 };
-
-export default EventModalForm;

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import GlobalContext from '../../context/GlobalContext';
+import GlobalContext from '../../../context/GlobalContext';
 import './EventModalDisplay.css';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
@@ -11,7 +11,7 @@ import dayjs from 'dayjs';
 
 const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
 
-const EventModalDisplay = () => {
+export const EventModalDisplay = () => {
   const { setShowEventModal, setDisplayEvent, daySelected, dispatchCalEvents, selectedEvent, setSelectedEvent } = useContext(GlobalContext);
   const selectedLabel = labels.find(label => label === selectedEvent.label);
 
@@ -79,5 +79,3 @@ const EventModalDisplay = () => {
     </div>
   );
 };
-
-export default EventModalDisplay;

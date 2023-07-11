@@ -8,6 +8,7 @@ import SubjectIcon from '@mui/icons-material/Subject';
 import EventIcon from '@mui/icons-material/Event';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import dayjs from 'dayjs';
+import { Button } from '../../../shared/ui';
 
 const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
 
@@ -19,32 +20,35 @@ export const EventModalDisplay = () => {
     <div className='event-modal'>
       <div className='event-display'>
         <div className='event-display__header' >
-          <button
-            onClick={(e) => {
+          <Button
+            classStyle={'event-display__edit'}
+            handleClick={(e) => {
               e.preventDefault();
               setShowEventModal(true);
               setDisplayEvent(false);
             }}
-            className='event-display__edit'
-            >
-            <EditIcon />
-          </button>
-          <button
-            onClick={() => {
+            children={<EditIcon />}
+          />
+          <Button
+            classStyle={'event-display__delete'}
+            handleClick={() => {
               dispatchCalEvents({
                 type: 'delete',
                 payload: selectedEvent
               });
               setDisplayEvent(false);
               setSelectedEvent(null);
-          }}
-            className='event-display__delete'
-            >
-            <DeleteOutlineOutlinedIcon/>
-          </button>
-          <button onClick={() => {setDisplayEvent(false); setSelectedEvent(null);}} className='event-modal__close'>
-            <CloseIcon/>
-          </button>
+            }}
+            children={<DeleteOutlineOutlinedIcon />}
+          />
+          <Button
+            classStyle={'event-modal__close'}
+            handleClick={() => {
+              setDisplayEvent(false); 
+              setSelectedEvent(null);
+            }}
+            children={<CloseIcon />}
+          />
         </div>
         {selectedEvent &&
         <div className='event-display__elements'>

@@ -5,9 +5,8 @@ export const useLabelsAccordion = () => {
   function handleClick () {
     setIsActive(!isActive);
   }
-  function getIconClass () {
-    return isActive ? 'labels__dropdown-reverse' : '';
-  }
+  const getIconClass = isActive ? 'labels__dropdown-reverse' : '';
+  
   return ( {
     isActive,
     handleClick,

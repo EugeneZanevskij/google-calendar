@@ -1,5 +1,4 @@
-import React, { useState, useContext } from 'react';
-import GlobalContext from '../../../context/GlobalContext';
+import React from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import CheckIcon from '@mui/icons-material/Check';
@@ -7,6 +6,7 @@ import SubjectIcon from '@mui/icons-material/Subject';
 import "./EventModalForm.css";
 import dayjs from 'dayjs';
 import { useEventForm } from '../model';
+import { Input } from '../../../shared/ui';
 
 const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
 
@@ -22,27 +22,26 @@ export const EventModalForm = () => {
           </button>
         </div>
         <div className='event-modal__element'>
-          <input 
+          <Input
             type='text'
             name='title'
             placeholder='Add title'
-            className='event-modal__input event-modal__input--title'
-            required
-            autoFocus
             value={title}
+            classStyle='event-modal__input event-modal__input--title'
             onChange={e => setTitle(e.target.value)}
-            />
+          />
         </div>
         <div className='event-modal__elements'>
         <div className='event-modal__element'>
           <ScheduleIcon/>
           <div className='event-modal__inputs'>
-            <input 
-              type="date"
+            <Input
+              type='date'
+              name='date'
               placeholder='Add date'
               value={daySelected.format('YYYY-MM-DD')}
-              onChange={(e) => { setDaySelected(dayjs(e.target.value));}}
-              className='event-modal__input-date'
+              classStyle='event-modal__input-date'
+              onChange={e => setDaySelected(dayjs(e.target.value))}
             />
           </div>
         </div>
@@ -52,9 +51,8 @@ export const EventModalForm = () => {
             <textarea
               name='description'
               placeholder='Add description'
-              className='event-modal__input event-modal__textarea'
-              required
               value={description}
+              className='event-modal__input event-modal__textarea'
               onChange={e => setDescription(e.target.value)}
             />
           </div>

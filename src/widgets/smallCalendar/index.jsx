@@ -45,7 +45,7 @@ const SmallCalendar = () => {
           return (
             <React.Fragment key={index}>
               {row.map((day, i) => {
-                return <SmallDay day={day} index={i} currentMonthIndex={currentMonthIndex} />
+                return <SmallDay key={i} day={day} index={i} currentMonthIndex={currentMonthIndex} />
               })}
             </React.Fragment>
           );

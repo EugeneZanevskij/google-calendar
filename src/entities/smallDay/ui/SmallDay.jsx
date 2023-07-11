@@ -1,18 +1,18 @@
 import React from 'react';
 import './style.css';
 import { useSmallDay } from '../model/useSmallDay';
+import { Button } from '../../../shared/ui';
 
 export const SmallDay = ({
   day,
-  index,
   currentMonthIndex
 }) => {
-  const {handleClick, getSmallDayStyle} = useSmallDay({currentMonthIndex});
+  const {handleClick, getSmallDayStyle} = useSmallDay(day, currentMonthIndex);
   return (
-  <button 
-    key={index} 
-    onClick={() => handleClick(day)}
-    className={getSmallDayStyle(day)}>
-    {day.format('D')}
-  </button>);
+  <Button
+    classStyle={getSmallDayStyle} 
+    handleClick={handleClick} 
+    children={day.format('D')} 
+  />
+  );
 }

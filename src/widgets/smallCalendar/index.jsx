@@ -7,14 +7,13 @@ import "./SmallCalendar.css";
 import GlobalContext from '../../context/GlobalContext';
 import { MonthDate, useMonthFormat } from '../../entities/monthDate';
 import { MonthButton, useMonthButton } from '../../entities/monthButtons';
-import { SmallDay, useSmallDay } from '../../entities/smallDay';
+import { SmallDay } from '../../entities/smallDay';
 
 const SmallCalendar = () => {
   const [currentMonthIndex, setCurrentMonthIndex] = useState(dayjs().month());
   const [currentMonth, setCurrentMonth] = useState(getMonth());
   const {monthIndex} = useContext(GlobalContext);
   
-  const {handleClick, getSmallDayStyle} = useSmallDay({currentMonthIndex})
   useEffect(() => {
     setCurrentMonthIndex(monthIndex);
   }, [monthIndex]);
@@ -45,7 +44,7 @@ const SmallCalendar = () => {
           return (
             <React.Fragment key={index}>
               {row.map((day, i) => {
-                return <SmallDay day={day} index={i} handleClick={handleClick} getSmallDayStyle={getSmallDayStyle} />
+                return <SmallDay day={day} index={i} currentMonthIndex={currentMonthIndex} />
               })}
             </React.Fragment>
           );

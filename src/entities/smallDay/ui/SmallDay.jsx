@@ -1,12 +1,13 @@
 import React from 'react';
 import './style.css';
+import { useSmallDay } from '../model/useSmallDay';
 
 export const SmallDay = ({
   day,
   index,
-  handleClick,
-  getSmallDayStyle
+  currentMonthIndex
 }) => {
+  const {handleClick, getSmallDayStyle} = useSmallDay({currentMonthIndex});
   return (
   <button 
     key={index} 

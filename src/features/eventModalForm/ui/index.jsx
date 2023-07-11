@@ -5,13 +5,12 @@ import CheckIcon from '@mui/icons-material/Check';
 import SubjectIcon from '@mui/icons-material/Subject';
 import "./EventModalForm.css";
 import dayjs from 'dayjs';
-import { useEventForm } from '../model';
+import { useEventForm } from '../model/useEventForm';
 import { Input } from '../../../shared/ui';
-
-const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
+import { EventModalElement } from '../../../entities/eventModalElement';
 
 export const EventModalForm = () => {
-  const {title, description, selectedLabel, daySelected, setTitle, setDescription, setSelectedLabel, setDaySelected, closeEventForm, handleSubmit } = useEventForm();
+  const {labels, title, description, selectedLabel, daySelected, setTitle, setDescription, setSelectedLabel, setDaySelected, closeEventForm, handleSubmit } = useEventForm();
 
   return (
     <div className='event-modal'>
@@ -21,42 +20,44 @@ export const EventModalForm = () => {
             <CloseIcon/>
           </button>
         </div>
-        <div className='event-modal__element'>
-          <Input
-            type='text'
-            name='title'
-            placeholder='Add title'
-            value={title}
-            classStyle='event-modal__input event-modal__input--title'
-            onChange={e => setTitle(e.target.value)}
-          />
-        </div>
-        <div className='event-modal__elements'>
-        <div className='event-modal__element'>
-          <ScheduleIcon/>
-          <div className='event-modal__inputs'>
+        <EventModalElement
+          children={
             <Input
-              type='date'
-              name='date'
-              placeholder='Add date'
-              value={daySelected.format('YYYY-MM-DD')}
-              classStyle='event-modal__input-date'
-              onChange={e => setDaySelected(dayjs(e.target.value))}
+              type='text'
+              name='title'
+              placeholder='Add title'
+              value={title}
+              classStyle='event-modal__input event-modal__input--title'
+              onChange={e => setTitle(e.target.value)}
             />
-          </div>
-        </div>
-        <div className='event-modal__element'>
-          <SubjectIcon/>
-          <div className='event-modal__inputs'>
-            <textarea
+          }
+        />
+        <div className='event-modal__elements'>
+          <EventModalElement
+            icon={<ScheduleIcon />}
+            children={
+              <Input
+                type='date'
+                name='date'
+                placeholder='Add date'
+                value={daySelected.format('YYYY-MM-DD')}
+                classStyle='event-modal__input-date'
+                onChange={e => setDaySelected(dayjs(e.target.value))}
+              />
+            }
+          />
+          <EventModalElement
+            icon={<SubjectIcon />}
+            children={
+              <textarea
               name='description'
               placeholder='Add description'
               value={description}
               className='event-modal__input event-modal__textarea'
               onChange={e => setDescription(e.target.value)}
             />
-          </div>
-        </div>
+            }
+          />
         <div className='event-modal__element' style={{justifyContent: 'center'}}> 
           {labels.map((label, i) => (
             <span

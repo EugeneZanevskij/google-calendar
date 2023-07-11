@@ -44,6 +44,7 @@ export const useEventForm = () => {
   }
   
   return ({
+    labels,
     title,
     description,
     selectedLabel,

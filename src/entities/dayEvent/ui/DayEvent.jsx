@@ -6,12 +6,8 @@ export const DayEvent = ({
   index,
   event,
   day
-  // handleClick,
-  // dayEventStyle
 }) => {
-  const {handleClick, dayEventStyle} = useDayEvent({
-    day
-  })
+  const {handleClick, dayEventStyle} = useDayEvent({day});
   return (
     <p key={index}
       onClick={(e) => {

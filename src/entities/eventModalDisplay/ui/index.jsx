@@ -1,8 +1,8 @@
 import React from 'react';
 import './EventModalDisplay.css';
-import CloseIcon from '@mui/icons-material/Close';
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditIcon from '@mui/icons-material/Edit';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import CloseIcon from '@mui/icons-material/Close';
 import SubjectIcon from '@mui/icons-material/Subject';
 import EventIcon from '@mui/icons-material/Event';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
@@ -11,29 +11,22 @@ import { Button } from '../../../shared/ui';
 import { useEventDisplay } from '../model/useEventDisplay';
 
 export const EventModalDisplay = () => {
-  const {daySelected, selectedEvent, selectedLabel, closeEventDisplay, deleteEventDisplay, editEventDisplay} = useEventDisplay();
+  const {daySelected, selectedEvent, selectedLabel, buttons} = useEventDisplay();
 
   return (
     <div className='event-modal'>
       <div className='event-display'>
         <div className='event-display__header' >
-          <Button
-            classStyle={'event-display__edit'}
-            handleClick={(e) => {
-              editEventDisplay(e);
-            }}
-            children={<EditIcon />}
-          />
-          <Button
-            classStyle={'event-display__delete'}
-            handleClick={deleteEventDisplay}
-            children={<DeleteOutlineOutlinedIcon />}
-          />
-          <Button
-            classStyle={'event-modal__close'}
-            handleClick={closeEventDisplay}
-            children={<CloseIcon />}
-          />
+          {buttons.map((button, i) => {
+            return (
+              <Button
+                key={i}
+                classStyle={button.classStyle}
+                handleClick={button.handleClick}
+                children={button.children}
+              />
+            )
+          })}
         </div>
         {selectedEvent &&
         <div className='event-display__elements'>

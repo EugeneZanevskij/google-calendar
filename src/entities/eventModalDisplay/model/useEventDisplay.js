@@ -1,4 +1,7 @@
 import { useContext } from 'react'
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import CloseIcon from '@mui/icons-material/Close';
 import GlobalContext from '../../../context/GlobalContext';
 
 export const useEventDisplay = () => {
@@ -23,12 +26,30 @@ export const useEventDisplay = () => {
     setShowEventModal(true);
     setDisplayEvent(false);
   }
+
+  const buttons = [
+    {
+      classStyle: 'event-display__edit',
+      handleClick: (e) => {
+        editEventDisplay(e);
+      },
+      children: <EditIcon />
+    },
+    {
+      classStyle: 'event-display__delete',
+      handleClick: deleteEventDisplay,
+      children: <DeleteOutlineOutlinedIcon />
+    },
+    {
+      classStyle: 'event-modal__close',
+      handleClick: closeEventDisplay,
+      children: <CloseIcon />
+    }
+  ];
   return ({
     daySelected,
     selectedEvent,
     selectedLabel,
-    closeEventDisplay,
-    deleteEventDisplay,
-    editEventDisplay
+    buttons
   })
 }

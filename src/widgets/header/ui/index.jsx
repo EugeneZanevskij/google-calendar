@@ -5,7 +5,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import MenuIcon from '@mui/icons-material/Menu';
 import {MonthButton, useMonthButton} from '../../../entities/monthButtons';
-import { MonthDate, useMonthFormat } from '../../../entities/monthDate';
+import { MonthDate } from '../../../entities/monthDate';
 import GlobalContext from '../../../context/GlobalContext';
 
 export const Header = () => {
@@ -21,7 +21,7 @@ export const Header = () => {
         <MonthButton handleClick={handlePrevMonth} children={<ChevronLeftIcon />}/>
         <MonthButton handleClick={handleNextMonth} children={<ChevronRightIcon />}/>
       </div>
-      <MonthDate monthFormat={useMonthFormat()}/>
+      <MonthDate/>
     </header>
   )
 }

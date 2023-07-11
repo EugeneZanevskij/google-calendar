@@ -7,7 +7,7 @@ import { MonthDate } from '../../entities/monthDate';
 import { MonthButton } from '../../entities/monthButtons';
 import { SmallDay } from '../../entities/smallDay';
 
-const SmallCalendar = () => {
+export const SmallCalendar = () => {
   const [currentMonthIndex, setCurrentMonthIndex] = useState(dayjs().month());
   const [currentMonth, setCurrentMonth] = useState(getMonth());
   const {monthIndex} = useContext(GlobalContext);
@@ -54,5 +54,3 @@ const SmallCalendar = () => {
     </div>
   )
 }
-
-export default SmallCalendar;

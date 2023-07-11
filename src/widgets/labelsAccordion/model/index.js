@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useLabels = () => {
+export const useLabelsAccordion = () => {
   const [isActive, setIsActive] = useState(true);
   function handleClick () {
     setIsActive(!isActive);

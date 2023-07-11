@@ -3,7 +3,7 @@ import "./Sidebar.css";
 import CreateEventButton from '../../entities/createEventButton';
 import SmallCalendar from '../smallCalendar';
 import GlobalContext from '../../context/GlobalContext';
-import LabelsAccordion from '../labelsAccordion/ui';
+import {LabelsAccordion} from '../labelsAccordion';
 
 const Sidebar = () => {
   const {openSidebar} = useContext(GlobalContext);

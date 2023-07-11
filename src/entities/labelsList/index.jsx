@@ -6,8 +6,8 @@ export const LabelsList = ({isActive}) => {
   const {labels, updateLabel} = useContext(GlobalContext);
   return (
     <>
-    {isActive && labels.map(({ label: lbl, checked }, idx) => (
-      <LabelCheckbox lbl={lbl} checked={checked} idx={idx} updateLabel={() => updateLabel({ label: lbl, checked: !checked })} />
+    {isActive && labels.map(({ label, checked }, idx) => (
+        <LabelCheckbox key={idx} label={label} checked={checked} updateLabel={() => updateLabel({ label, checked: !checked })} />
       ))}
     </>
   )

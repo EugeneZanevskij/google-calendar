@@ -1,1 +1,1 @@
-export {LabelsAccordion} from './ui';
+export { LabelsAccordion } from "./ui";

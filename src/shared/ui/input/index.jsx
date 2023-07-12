@@ -7,6 +7,8 @@ export const Input = ({
   value,
   classStyle,
   onChange,
+  style,
+  checked,
 }) => {
   return (
     <input
@@ -16,6 +18,8 @@ export const Input = ({
       value={value}
       className={classStyle}
       onChange={onChange}
+      style={style}
+      checked={checked}
     />
   );
 };

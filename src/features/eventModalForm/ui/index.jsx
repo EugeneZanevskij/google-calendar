@@ -6,7 +6,7 @@ import SubjectIcon from '@mui/icons-material/Subject';
 import "./EventModalForm.css";
 import dayjs from 'dayjs';
 import { useEventForm } from '../model/useEventForm';
-import { Input } from '../../../shared/ui';
+import { Input, LabelInputForm } from '../../../shared/ui';
 import { EventModalElement } from '../../../entities/eventModalElement';
 
 export const EventModalForm = () => {
@@ -60,13 +60,13 @@ export const EventModalForm = () => {
           />
         <div className='event-modal__element' style={{justifyContent: 'center'}}> 
           {labels.map((label, i) => (
-            <span
+            <LabelInputForm
               key={i}
-              onClick={() => setSelectedLabel(label)}
-              className='event-modal__label' 
-              style={{backgroundColor: label}}>
-                {selectedLabel === label && <CheckIcon/>}
-              </span>
+              style={{backgroundColor: label}}
+              styleName='event-modal__label'
+              handleLabelClick={() => setSelectedLabel(label)}
+              children={selectedLabel === label && <CheckIcon/>}
+            />
           ))}
         </div>
         <button onClick={handleSubmit} type='submit' className='event-modal__save'>

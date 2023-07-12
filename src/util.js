@@ -1,4 +1,4 @@
-const dayjs = require('dayjs');
+const dayjs = require("dayjs");
 
 export function getMonth(month = dayjs().month()) {
   month = Math.floor(month);

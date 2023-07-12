@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const GlobalContext = React.createContext({
   monthIndex: 0,
@@ -13,14 +13,14 @@ const GlobalContext = React.createContext({
   setDisplayEvent: () => {},
   showEventModal: false,
   setShowEventModal: () => {},
-  dispatchCalEvents: ({type, payload}) => {},
+  dispatchCalEvents: ({ type, payload }) => {},
   calendarEvents: [],
   selectedEvent: null,
   setSelectedEvent: () => {},
   labels: [],
   setLabels: () => {},
   updateLabel: () => {},
-  filteredEvents: []
+  filteredEvents: [],
 });
 
 export default GlobalContext;

@@ -1,8 +1,15 @@
-import React from 'react';
+import React from "react";
 
-export const Input = ({type, name, placeholder, value, classStyle, onChange}) => {
+export const Input = ({
+  type,
+  name,
+  placeholder,
+  value,
+  classStyle,
+  onChange,
+}) => {
   return (
-    <input 
+    <input
       type={type}
       name={name}
       placeholder={placeholder}
@@ -10,5 +17,5 @@ export const Input = ({type, name, placeholder, value, classStyle, onChange}) =>
       className={classStyle}
       onChange={onChange}
     />
-  )
-}
+  );
+};

@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 
-export const DisplayElement = ({leftPart, rightPart}) => {
+export const DisplayElement = ({ leftPart, rightPart }) => {
   return (
-    <div className='event-display__element'>
+    <div className="event-display__element">
       {leftPart}
       {rightPart}
     </div>
-  )
-}
+  );
+};

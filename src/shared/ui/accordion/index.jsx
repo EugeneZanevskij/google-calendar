@@ -1,6 +1,12 @@
-import React from 'react';
+import React from "react";
 
-export const Accordion = ({styling, title, icon, handleAccordion, children}) => {
+export const Accordion = ({
+  styling,
+  title,
+  icon,
+  handleAccordion,
+  children,
+}) => {
   return (
     <>
       <div className={styling} onClick={handleAccordion}>
@@ -9,5 +15,5 @@ export const Accordion = ({styling, title, icon, handleAccordion, children}) => 
       </div>
       {children}
     </>
-  )
-}
+  );
+};

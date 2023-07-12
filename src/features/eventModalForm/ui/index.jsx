@@ -8,6 +8,7 @@ import dayjs from 'dayjs';
 import { useEventForm } from '../model/useEventForm';
 import { Input, LabelInputForm } from '../../../shared/ui';
 import { EventModalElement } from '../../../entities/eventModalElement';
+import { LabelsInputs } from '../../../entities/LabelsInputs';
 
 export const EventModalForm = () => {
   const {labels, title, description, selectedLabel, daySelected, setTitle, setDescription, setSelectedLabel, setDaySelected, closeEventForm, handleSubmit } = useEventForm();
@@ -58,21 +59,15 @@ export const EventModalForm = () => {
             />
             }
           />
-        <div className='event-modal__element' style={{justifyContent: 'center'}}> 
-          {labels.map((label, i) => (
-            <LabelInputForm
-              key={i}
-              style={{backgroundColor: label}}
-              styleName='event-modal__label'
-              handleLabelClick={() => setSelectedLabel(label)}
-              children={selectedLabel === label && <CheckIcon/>}
-            />
-          ))}
+          <LabelsInputs 
+            labels={labels} 
+            selectedLabel={selectedLabel} 
+            setSelectedLabel={setSelectedLabel}
+          />
+          <button onClick={handleSubmit} type='submit' className='event-modal__save'>
+            'Save'
+          </button>
         </div>
-        <button onClick={handleSubmit} type='submit' className='event-modal__save'>
-          'Save'
-        </button>
-      </div>
       </form>
     </div>
   );

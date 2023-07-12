@@ -1,49 +1,55 @@
-import { useContext, useState } from 'react'
-import GlobalContext from '../../../context/GlobalContext';
+import { useContext, useState } from "react";
+import GlobalContext from "../../../context/GlobalContext";
 
 export const useEventForm = () => {
-  const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
+  const labels = ["red", "green", "blue", "purple", "pink", "orange"];
 
-  const {setShowEventModal, daySelected, setDaySelected, dispatchCalEvents, selectedEvent} = useContext(GlobalContext);
-  const [title, setTitle] = useState(
-    selectedEvent ? selectedEvent.title : ''
-  );
+  const {
+    setShowEventModal,
+    daySelected,
+    setDaySelected,
+    dispatchCalEvents,
+    selectedEvent,
+  } = useContext(GlobalContext);
+  const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
   const [description, setDescription] = useState(
-    selectedEvent ? selectedEvent.description : ''
+    selectedEvent ? selectedEvent.description : ""
   );
   const [selectedLabel, setSelectedLabel] = useState(
-    selectedEvent ? labels.find(label => label === selectedEvent.label) : labels[0]
+    selectedEvent
+      ? labels.find((label) => label === selectedEvent.label)
+      : labels[0]
   );
 
-  function handleSubmit (e) {
+  function handleSubmit(e) {
     e.preventDefault();
     const calEvent = {
       title,
       description,
       label: selectedLabel,
       day: daySelected,
-      id: selectedEvent ? selectedEvent.id : Date.now()
+      id: selectedEvent ? selectedEvent.id : Date.now(),
     };
-    calEvent.title = calEvent.title ? calEvent.title : '(No title)';
+    calEvent.title = calEvent.title ? calEvent.title : "(No title)";
     if (selectedEvent) {
       dispatchCalEvents({
-        type: 'update',
-        payload: calEvent
+        type: "update",
+        payload: calEvent,
       });
     } else {
-    dispatchCalEvents({
-      type: 'push',
-      payload: calEvent
-    })
-    };
+      dispatchCalEvents({
+        type: "push",
+        payload: calEvent,
+      });
+    }
     setShowEventModal(false);
-  };
+  }
 
   function closeEventForm() {
     setShowEventModal(false);
   }
-  
-  return ({
+
+  return {
     labels,
     title,
     description,
@@ -54,6 +60,6 @@ export const useEventForm = () => {
     setSelectedLabel,
     setDaySelected,
     closeEventForm,
-    handleSubmit
-  })
-}
+    handleSubmit,
+  };
+};

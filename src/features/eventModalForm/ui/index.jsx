@@ -5,7 +5,7 @@ import SubjectIcon from "@mui/icons-material/Subject";
 import "./EventModalForm.css";
 import dayjs from "dayjs";
 import { useEventForm } from "../model/useEventForm";
-import { Input } from "../../../shared/ui";
+import { Button, Input } from "../../../shared/ui";
 import { EventModalElement } from "../../../entities/eventModalElement";
 import { LabelsInputs } from "../../../entities/LabelsInputs";
 
@@ -28,9 +28,11 @@ export const EventModalForm = () => {
     <div className="event-modal">
       <form className="event-modal__form" onSubmit={handleSubmit}>
         <div className="event-modal__header">
-          <button onClick={closeEventForm} className="event-modal__close">
-            <CloseIcon />
-          </button>
+          <Button
+            classStyle="event-modal__close"
+            handleClick={closeEventForm}
+            children={<CloseIcon />}
+          />
         </div>
         <EventModalElement
           children={
@@ -75,13 +77,11 @@ export const EventModalForm = () => {
             selectedLabel={selectedLabel}
             setSelectedLabel={setSelectedLabel}
           />
-          <button
-            onClick={handleSubmit}
-            type="submit"
-            className="event-modal__save"
-          >
-            Save
-          </button>
+          <Button
+            classStyle="event-modal__save"
+            handleClick={handleSubmit}
+            children="Save"
+          />
         </div>
       </form>
     </div>

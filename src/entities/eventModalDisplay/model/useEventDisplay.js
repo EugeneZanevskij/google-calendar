@@ -1,13 +1,20 @@
-import { useContext } from 'react'
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import CloseIcon from '@mui/icons-material/Close';
-import GlobalContext from '../../../context/GlobalContext';
+import { useContext } from "react";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import CloseIcon from "@mui/icons-material/Close";
+import GlobalContext from "../../../context/GlobalContext";
 
 export const useEventDisplay = () => {
-  const labels = ['red', 'green', 'blue',  'purple', 'pink', 'orange'];
-  const { setShowEventModal, setDisplayEvent, daySelected, dispatchCalEvents, selectedEvent, setSelectedEvent } = useContext(GlobalContext);
-  const selectedLabel = labels.find(label => label === selectedEvent.label);
+  const labels = ["red", "green", "blue", "purple", "pink", "orange"];
+  const {
+    setShowEventModal,
+    setDisplayEvent,
+    daySelected,
+    dispatchCalEvents,
+    selectedEvent,
+    setSelectedEvent,
+  } = useContext(GlobalContext);
+  const selectedLabel = labels.find((label) => label === selectedEvent.label);
 
   function closeEventDisplay() {
     setDisplayEvent(false);
@@ -15,8 +22,8 @@ export const useEventDisplay = () => {
   }
   function deleteEventDisplay() {
     dispatchCalEvents({
-      type: 'delete',
-      payload: selectedEvent
+      type: "delete",
+      payload: selectedEvent,
     });
     closeEventDisplay();
   }
@@ -29,27 +36,27 @@ export const useEventDisplay = () => {
 
   const buttons = [
     {
-      classStyle: 'event-display__edit',
+      classStyle: "event-display__edit",
       handleClick: (e) => {
         editEventDisplay(e);
       },
-      children: <EditIcon />
+      children: <EditIcon />,
     },
     {
-      classStyle: 'event-display__delete',
+      classStyle: "event-display__delete",
       handleClick: deleteEventDisplay,
-      children: <DeleteOutlineOutlinedIcon />
+      children: <DeleteOutlineOutlinedIcon />,
     },
     {
-      classStyle: 'event-modal__close',
+      classStyle: "event-modal__close",
       handleClick: closeEventDisplay,
-      children: <CloseIcon />
-    }
+      children: <CloseIcon />,
+    },
   ];
-  return ({
+  return {
     daySelected,
     selectedEvent,
     selectedLabel,
-    buttons
-  })
-}
+    buttons,
+  };
+};

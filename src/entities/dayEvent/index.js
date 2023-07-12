@@ -1,1 +1,1 @@
-export {DayEvent} from './ui/DayEvent';
+export { DayEvent } from "./ui/DayEvent";

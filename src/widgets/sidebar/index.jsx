@@ -1,23 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import "./Sidebar.css";
-import CreateEventButton from '../../entities/createEventButton';
-import SmallCalendar from '../../entities/smallCalendar/SmallCalendar';
-import Labels from '../../entities/labels/ui';
-import GlobalContext from '../../context/GlobalContext';
+import { CreateEventButton } from "../../entities/createEventButton";
+import { SmallCalendar } from "../smallCalendar";
+import { LabelsAccordion } from "../labelsAccordion";
+import GlobalContext from "../../context/GlobalContext";
 
-const Sidebar = () => {
-  const {openSidebar} = useContext(GlobalContext);
+export const Sidebar = () => {
+  const { openSidebar } = useContext(GlobalContext);
   return (
-    <aside className={`sidebar ${!openSidebar ? 'sidebar--closed' : ''}`}>
-      <CreateEventButton/>
-      {openSidebar && 
-      <>
-        <SmallCalendar/>
-        <Labels/>
-      </>
-      }
+    <aside className={`sidebar ${!openSidebar ? "sidebar--closed" : ""}`}>
+      <CreateEventButton />
+      {openSidebar && (
+        <>
+          <SmallCalendar />
+          <LabelsAccordion />
+        </>
+      )}
     </aside>
-  )
-}
-
-export default Sidebar
+  );
+};

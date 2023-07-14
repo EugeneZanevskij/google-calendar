@@ -9,7 +9,7 @@
   align-items: flex-start;
   border-radius: 0.5rem;
   overflow: hidden;
-  color: rgb(60,64,67);
+  color: rgb(60, 64, 67);
 }
 
 .event-display__header {
@@ -83,7 +83,7 @@
 }
 
 .event-display__title {
-  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
   font-weight: 400;
   font-size: 1.375rem;
 }

@@ -1,17 +1,14 @@
-import React from 'react';
-import './style.css';
+import React from "react";
+import { useSmallDay } from "../model/useSmallDay";
+import { Button } from "../../../shared/ui";
 
-export const SmallDay = ({
-  day,
-  index,
-  handleClick,
-  getSmallDayStyle
-}) => {
+export const SmallDay = ({ day, currentMonthIndex }) => {
+  const { handleClick, getSmallDayStyle } = useSmallDay(day, currentMonthIndex);
   return (
-  <button 
-    key={index} 
-    onClick={() => handleClick(day)}
-    className={getSmallDayStyle(day)}>
-    {day.format('D')}
-  </button>);
-}
+    <Button
+      classStyle={getSmallDayStyle}
+      handleClick={handleClick}
+      children={day.format("D")}
+    />
+  );
+};

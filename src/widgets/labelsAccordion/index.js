@@ -1,0 +1,1 @@
+export { LabelsAccordion } from "./ui";

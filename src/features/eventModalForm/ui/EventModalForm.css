@@ -4,7 +4,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* background-color: rgba(0, 0, 0, 0.5); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,8 +110,8 @@
   width: 100%;
   min-height: 5rem;
   border: none;
-  padding: 0.5rem 0.5rem 0; 
-  background-color: rgb(241,243,244);
+  padding: 0.5rem 0.5rem 0;
+  background-color: rgb(241, 243, 244);
 }
 
 .event-modal__label {

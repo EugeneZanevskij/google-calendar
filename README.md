@@ -1,3 +1,5 @@
+# This project made using React as framework and Feature-Sliced Design (FSD) methodology (have identical appearance and retain all functionality)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
